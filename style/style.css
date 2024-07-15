@@ -1,0 +1,280 @@
+/*
+   Autor: Rafael Zelak Fernandes
+   Data: Fevereiro de 2024
+   Descrição: Este programa tem como objetivo gerar uma assinatura digital para colocar no email nos padrões da Setup Tecnologia
+   Licença: MIT
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    position: relative;
+    overflow-x: hidden;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    display: flex; 
+    justify-content: space-between; 
+    flex-grow: 1;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: rgba(0, 116, 170, 1);
+    color: #fff;
+    padding: 0px;
+    text-align: center;
+    width: 100%; 
+    box-shadow: 5px 5px 70px rgba(0, 0, 0, 0.22);
+    z-index: 9;
+
+}
+
+.head {
+    transition: background-color .8s ease;
+}
+.foot {
+    transition: background-color .8s ease;
+}
+.form {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    padding: 4%;
+    box-shadow: 5px 5px 15px rgba(29, 40, 51, 0.2);
+    border-radius: 5%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+#opcoes,
+#opcoes_dominio,
+#email,
+#cargo,
+#nome {
+    border: 2px solid rgb(38, 150, 202);
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 16px;
+    color: rgb(0, 116, 170);
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 300px;
+}
+
+
+
+#opcoes{width: 323px;
+margin-bottom: 50px;}
+#opcoes_dominio{
+    width: 323px;  
+}
+#cargo:focus {
+    border-color: rgba(118, 163, 184, 0.7);
+}
+#nome:focus {
+    border-color: rgba(118, 163, 184, 0.7);
+}
+#email:focus {
+    border-color: rgba(118, 163, 184, 0.7);
+}
+
+
+.form p {
+    color: rgb(0, 116, 170);
+    font-size: 14pt;
+    margin-left: 12px;
+    margin-bottom: 2px;
+}
+
+
+
+#btnHTML:hover {
+    background-color: rgb(38, 150, 202);
+    color: white;
+}
+#btnHTML,
+#btnCopiar{
+    background-color: transparent;
+    border: 2px solid rgb(38, 150, 202);
+    border-radius: 20px;
+    color: rgb(38, 150, 202);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    width: 80%;
+    margin-left: 10%;
+    font-size: 12pt;
+}
+#btnHTML{margin-top: 50px;}
+
+#btnCopiar:hover{
+    background-color: rgb(38, 150, 202);
+    color: white;
+}
+
+.popup {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background-color: rgb(0, 116, 170);
+    color: #fff;
+    border-radius: 12px;
+    z-index: 1000;
+    opacity: 0;
+    transition: top 0.5s, opacity 0.5s;
+}
+
+.popup.show {
+    top: 105px;
+    opacity: 1;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    position: absolute;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    z-index: -1;
+    left: 61%;
+    top: 35%;
+    padding: 50px;
+    border: 2px solid transparent;
+    transition: box-shadow 1s ease;
+    border-radius: 5%;
+
+}
+.content.hover-border {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 5%;
+}
+.content img {
+    margin-right: 20px;
+}
+
+h2 {
+    text-align: center;
+    left: 50%;
+    position: relative;
+}
+
+footer {
+    background-color: rgb(0, 116, 170);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    flex-shrink: 0;
+    position: absolute;
+    height: 2vh;
+    bottom: 0;
+    box-shadow: -5px -5px 70px rgba(0, 0, 0, 0.22);
+}
+
+footer h5{
+    position: relative;
+    bottom: 19px;
+}
+
+.nome {
+    font-weight: bold;
+    color: rgb(38, 150, 202);
+    font-size: 16pt;
+    margin-bottom: -9px;
+    margin-top: -10px;
+}
+
+.email {
+    color: rgb(38, 150, 202);
+    text-decoration: underline;
+    margin-bottom: 6px;
+}
+
+.cargo {
+    margin-bottom: -6px;
+}
+
+.telefone {
+    margin-bottom: -6px;
+}
+
+#conteudoCopiado {
+    display: flex;
+    flex-direction: column;
+}
+
+.setup {
+    margin-bottom: -30px;
+    margin-top: 10px;
+}
+
+.rede_social {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5px;
+}
+
+.rede_social img {
+    margin-right: 10px;
+    margin-top: 3px;
+    height: 21px;
+}
+
+.linha {
+    margin-left: 115px;
+    position: absolute;
+}
+
+#conteudoCopiado {
+    margin-left: 10px;
+    font-family: 'Arial';
+    font-size: 9pt;
+}
+
+.popup.error {
+    background-color: rgb(233, 70, 70);
+}
+.aviso{
+    position: absolute;
+    margin-bottom: 330px;
+    margin-left: 18%;
+    color: rgb(0, 116, 170);
+    font-size: 20pt;
+    width: 500px;
+    opacity: 0;
+    transition: 1s ease;
+
+}
+.aviso.aviso-hover{
+    opacity: 1;
+}
+.campo:disabled {
+    background-color: #c8d6df; 
+    opacity: 0.6;
+    transition: 1s;
+}
+
+.campo-disabled {
+    background-color: #ffffff; 
+    transition: 1s;
+}
+
+#logo{
+    opacity: 1;
+}
+.transparente {
+    opacity: 0;
+}
