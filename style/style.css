@@ -20,11 +20,32 @@ body {
 .container {
     margin: 0 auto;
     padding: 20px;
+    padding-top: 19vh;
     display: flex; 
-    justify-content: space-between; 
+    flex-direction: column; 
+    align-items: center;
+    margin-left: 27%; 
     flex-grow: 1;
-    overflow-x: hidden;
 }
+
+footer {
+    background-color: rgb(0, 116, 170);
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    flex-shrink: 0;
+    position: fixed;
+    height: 2vh;
+    bottom: 0;
+    box-shadow: -5px -5px 70px rgba(0, 0, 0, 0.22);
+}
+
+footer h5{
+    position: relative;
+    bottom: 19px;
+}
+
 
 header {
     background-color: rgba(0, 116, 170, 1);
@@ -33,27 +54,25 @@ header {
     text-align: center;
     width: 100%; 
     box-shadow: 5px 5px 70px rgba(0, 0, 0, 0.22);
-    z-index: 9;
-
+    position: fixed;
+    z-index: 10 !important;
 }
 
-.head {
+.head, .foot {
     transition: background-color .8s ease;
 }
-.foot {
-    transition: background-color .8s ease;
-}
+
 .form {
-    position: absolute;
-    top: 50%;
-    left: 35%;
-    transform: translate(-50%, -50%);
-    padding: 4%;
-    box-shadow: 5px 5px 15px rgba(29, 40, 51, 0.2);
+    width: 130%;
+    max-width: 500px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(29, 40, 51, 0.3);
     border-radius: 5%;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    background: #fff;
 }
+
+
 #opcoes,
 #opcoes_dominio,
 #email,
@@ -66,15 +85,17 @@ header {
     color: rgb(0, 116, 170);
     outline: none;
     transition: border-color 0.3s ease;
-    width: 300px;
+    width: 87%;
+    }
+
+
+
+#opcoes_dominio,
+#opcoes{
+    width: 94%;
 }
-
-
-
-#opcoes{width: 323px;
-margin-bottom: 50px;}
-#opcoes_dominio{
-    width: 323px;  
+#opcoes{
+    margin-bottom: 13%;
 }
 #cargo:focus {
     border-color: rgba(118, 163, 184, 0.7);
@@ -149,8 +170,8 @@ margin-bottom: 50px;}
     display: flex;
     align-items: center;
     z-index: -1;
-    left: 61%;
-    top: 35%;
+    left:53%;
+    top: 42%;
     padding: 50px;
     border: 2px solid transparent;
     transition: box-shadow 1s ease;
@@ -169,24 +190,6 @@ h2 {
     text-align: center;
     left: 50%;
     position: relative;
-}
-
-footer {
-    background-color: rgb(0, 116, 170);
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-    flex-shrink: 0;
-    position: absolute;
-    height: 2vh;
-    bottom: 0;
-    box-shadow: -5px -5px 70px rgba(0, 0, 0, 0.22);
-}
-
-footer h5{
-    position: relative;
-    bottom: 19px;
 }
 
 .nome {
@@ -277,4 +280,77 @@ footer h5{
 }
 .transparente {
     opacity: 0;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.info-container {
+    position: relative;
+}
+
+.info-btn {
+    position: absolute;
+    top: 7%;
+    right: 0%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #007bffda;
+    color: white;
+    border: none;
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.info-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.info-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.info-popup {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    position: relative;
+    text-align: left; /* Adiciona alinhamento à esquerda */
+}
+
+.info-popup p {
+    margin: 0; /* Remove margens padrão dos <p> para melhor controle do layout */
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: red;
 }

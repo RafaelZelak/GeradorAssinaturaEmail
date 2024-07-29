@@ -254,3 +254,17 @@ function atualizarConteudo() {
         document.getElementById('btnHTML').addEventListener('mouseover', toggleHoverBorder);
         document.getElementById('btnHTML').addEventListener('mouseout', toggleHoverBorder);
 
+        function showInfo() {
+            document.getElementById('infoOverlay').classList.add('show');
+        }
+        
+        function hideInfo() {
+            document.getElementById('infoOverlay').classList.remove('show');
+        }
+        
+        window.onclick = function(event) {
+            if (event.target === document.getElementById('infoOverlay')) {
+                hideInfo();
+            }
+        };
+        

@@ -1,12 +1,5 @@
-<!--
-   Autor: Rafael Zelak Fernandes
-   Data: Fevereiro de 2024
-   Descrição: Este programa tem como objetivo gerar uma assinatura digital para colocar no email nos padrões da Setup Tecnologia
-   Licença: MIT
--->
-
 <!DOCTYPE html>
-<html lang="pt-BR"></html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,17 +7,32 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-
-    <link rel="shortcut icon" type="imagex/png" href="img/logo_ico.png">
+    <link rel="shortcut icon" type="image/png" href="img/logo_ico.png">
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
     <header class="head">
-        <h1>Criador de assinatura Setup teste</h1>
+        <h1>Criador de assinatura Setup</h1>
     </header>
     
     <div class="container">
         <div class="form">
+            <div class="info-container">
+                <button class="info-btn" onclick="showInfo()">?</button>
+                <div class="info-overlay" id="infoOverlay">
+                    <div class="info-popup">
+                        <span class="close-btn" onclick="hideInfo()">&times;</span>
+                        <p>Instruções:</p><br><br>
+                        <p>● Selecionar a empresa para qual a assinatura está sendo gerada;</p><br>
+                        <p>● Selecionar o domínio de E-mail;</p><br>
+                        <p>● Colocar as informaçãoes do funcinário;</p><br>
+                        <p>● Não é necessário adicionar o domínio no campo "Email", ele completa sosinho;</p><br>
+                        <p>● Ao clicar no botão "Gerar HTML e PNG" ele pedirá as permissões e fará o Download dos arquivos .png e .html;</p><br>
+                        <p>● O botão "Copiar" copia diretamente o HTML;</p><br>
+                        <p>● Agora é só anexar ao seu Email.</p><br>
+                    </div>
+                </div>
+            </div>
             <form id="meuFormulario">
                 <p><label for="opcoes" id="nome_opcoes">Empresa:</label></p>
                 <select name="opcoes" id="opcoes" onchange="removerOpcaoPadrao(); atualizarLogo(); atualizarHTML()">
@@ -72,10 +80,9 @@
             </div>
         </div>
     </div>
-    <footer class = "foot">
+    <footer class="foot">
         <h5>© 2024 Setup Tecnologia – 08.671.358/0001-58. Todos os direitos reservados.</h5>
     </footer>
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
@@ -83,4 +90,3 @@
     
 </body>
 </html>
-
