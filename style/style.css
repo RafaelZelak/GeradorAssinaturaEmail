@@ -46,7 +46,6 @@ footer h5{
     bottom: 19px;
 }
 
-
 header {
     background-color: rgba(0, 116, 170, 1);
     color: #fff;
@@ -72,7 +71,6 @@ header {
     background: #fff;
 }
 
-
 #opcoes,
 #opcoes_dominio,
 #email,
@@ -86,25 +84,28 @@ header {
     outline: none;
     transition: border-color 0.3s ease;
     width: 87%;
-    }
+}
 
 #opcoes_dominio,
 #opcoes{
     width: 94%;
 }
+
 #opcoes{
     margin-bottom: 13%;
 }
+
 #cargo:focus {
     border-color: rgba(118, 163, 184, 0.7);
 }
+
 #nome:focus {
     border-color: rgba(118, 163, 184, 0.7);
 }
+
 #email:focus {
     border-color: rgba(118, 163, 184, 0.7);
 }
-
 
 .form p {
     color: rgb(0, 116, 170);
@@ -113,14 +114,13 @@ header {
     margin-bottom: 2px;
 }
 
-
-
 #btnHTML:hover {
     background-color: rgb(38, 150, 202);
     color: white;
 }
+
 #btnHTML,
-#btnCopiar{
+#btnCopiar {
     background-color: transparent;
     border: 2px solid rgb(38, 150, 202);
     border-radius: 20px;
@@ -134,9 +134,12 @@ header {
     margin-left: 10%;
     font-size: 12pt;
 }
-#btnHTML{margin-top: 50px;}
 
-#btnCopiar:hover{
+#btnHTML {
+    margin-top: 50px;
+}
+
+#btnCopiar:hover {
     background-color: rgb(38, 150, 202);
     color: white;
 }
@@ -168,18 +171,19 @@ header {
     display: flex;
     align-items: center;
     z-index: -1;
-    left:53%;
+    left: 53%;
     top: 42%;
     padding: 50px;
     border: 2px solid transparent;
     transition: box-shadow 1s ease;
     border-radius: 5%;
-
 }
+
 .content.hover-border {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.25);
     border-radius: 5%;
 }
+
 .content img {
     margin-right: 20px;
 }
@@ -248,7 +252,8 @@ h2 {
 .popup.error {
     background-color: rgb(233, 70, 70);
 }
-.aviso{
+
+.aviso {
     position: absolute;
     margin-bottom: 330px;
     margin-left: 18%;
@@ -257,11 +262,12 @@ h2 {
     width: 500px;
     opacity: 0;
     transition: 1s ease;
-
 }
-.aviso.aviso-hover{
+
+.aviso.aviso-hover {
     opacity: 1;
 }
+
 .campo:disabled {
     background-color: #c8d6df; 
     opacity: 0.6;
@@ -273,16 +279,12 @@ h2 {
     transition: 1s;
 }
 
-#logo{
+#logo {
     opacity: 1;
 }
+
 .transparente {
     opacity: 0;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
 }
 
 .info-container {
@@ -340,7 +342,6 @@ body {
     margin: 0; /* Remove margens padrão dos <p> para melhor controle do layout */
 }
 
-
 .close-btn {
     position: absolute;
     top: 10px;
@@ -351,4 +352,97 @@ body {
 
 .close-btn:hover {
     color: red;
+}
+
+/* Estilos para telas pequenas */
+@media (max-width: 1168px) {
+    header, footer {
+        padding: 0px;
+        margin-left: -17%;
+    }
+
+    .container {
+        margin: 0;
+        padding: 50px;
+        padding-top: 10vh;
+        margin-left: 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        box-shadow: 0px 0px 10px rgba(29, 40, 51, 0.3);
+    }
+
+    #btnHTML, #btnCopiar {
+        width: 100%;
+        margin-left: 0;
+        font-size: 14px;
+    }
+
+    .content {
+        left: 0;
+        top: 0;
+        padding: 40px;
+        border: none;
+        position: static;
+        margin: 0;
+        box-shadow: none;
+    }
+
+    .linha {
+        margin-left: 11%;
+    }
+
+    .aviso {
+        margin-bottom: 20px;
+        margin-left: 0;
+        font-size: 18pt;
+        width: 100%;
+        text-align: center;
+    }
+
+    footer h5 {
+        font-size: 12px;
+        position: static;
+        margin: 0;
+    }
+}
+
+/* Estilos para telas muito pequenas, como smartphones em modo retrato */
+@media (max-width: 580px) {
+    header, footer {
+        padding: 10px;
+        font-size: 10pt;
+    }
+
+    .form {
+        padding: 5px;
+    }
+
+    #btnHTML, #btnCopiar {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .info-btn {
+        width: 16px;
+        height: 16px;
+        font-size: 12px;
+    }
+
+    .info-popup {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .aviso {
+        font-size: 16pt;
+        width: 90%;
+        margin-left: 5%;
+    }
 }
