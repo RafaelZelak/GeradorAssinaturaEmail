@@ -5,22 +5,19 @@
    Licença: MIT
 */
 
-// Função para atualizar o conteúdo com os valores dos campos
 
 function atualizarConteudo() {
     const formulario = document.getElementById('meuFormulario');
 
-            // Seleciona os campos de entrada
     const nome = formulario.nome.value;
     const email = formulario.email.value;
     const cargo = formulario.cargo.value;
 
-    // Verifica e limpa tudo após "@" para garantir o formato correto
     const atPosition = email.indexOf('@');
-    let emailBase = email; // valor a ser corrigido
+    let emailBase = email;
     
     if (atPosition !== -1) {
-        emailBase = email.substring(0, atPosition); // pega tudo antes do "@"
+        emailBase = email.substring(0, atPosition);
     }
 
     const dominioSelect = document.getElementById('opcoes_dominio');
@@ -34,7 +31,7 @@ function atualizarConteudo() {
                 <p class = "cargo">${cargo}</p>
                 <p class = "setup">Setup Tecnologia<p>
                 <p class = "email">${email_dominio}</p>
-                <a class = "email">setuptecnologia.com.br</a>
+                <a class = "email">www.setuptecnologia.com.br</a>
                 <div class="rede_social">
                     <img src="img/face.png" alt="facebook">
                     <img src="img/insta.png" alt="instagram">
@@ -65,7 +62,6 @@ function atualizarConteudo() {
                 select.remove(0);
             }
             
-            // Remova a desativação dos campos de entrada
             document.getElementById("nome").disabled = false;
             document.getElementById("cargo").disabled = false;
             document.getElementById("email").disabled = false;
@@ -146,6 +142,19 @@ function atualizarConteudo() {
                 }
                 for (var i = 0; i < titulos.length; i++) {
                     titulos[i].style.color = "#14243b";
+                }
+            } else if (select.value === "opcao6") {
+                logo.src = "img/openix.png";
+                header.style.backgroundColor = "#579b51";
+                footer.style.backgroundColor = "#579b51";
+                for (var i = 0; i < elementos.length; i++) {
+                    elementos[i].style.border = "2px solid #579b51";
+                }
+                for (var i = 0; i < elementos.length; i++) {
+                    text[i].style.color = "#134d0f";
+                }
+                for (var i = 0; i < titulos.length; i++) {
+                    titulos[i].style.color = "#579b51";
                 }
             } else {
                 logo.src = "img/logo.png";
@@ -244,8 +253,24 @@ function atualizarConteudo() {
                     btnCopiar.addEventListener("mouseout", function() {
                         this.style.backgroundColor = ""; 
                     });
+                }else if (select.value === "opcao6"){
+                    btnHTML.addEventListener("mouseover", function() {
+                        this.style.backgroundColor = "rgba(87, 155, 81, 0.3)";
+                    });
+                
+                    btnHTML.addEventListener("mouseout", function() {
+                        this.style.backgroundColor = ""; 
+                    });
+                
+                    btnCopiar.addEventListener("mouseover", function() {
+                        this.style.backgroundColor = "rgba(87, 155, 81, 0.3)"; 
+                    });
+                
+                    btnCopiar.addEventListener("mouseout", function() {
+                        this.style.backgroundColor = ""; 
+                    });
                 }
-            }
+            } 
             
             applyHoverStyles();
         }
