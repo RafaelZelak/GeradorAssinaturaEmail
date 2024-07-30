@@ -86,6 +86,8 @@ header {
     width: 87%;
 }
 
+
+
 #opcoes_dominio,
 #opcoes{
     width: 94%;
@@ -212,6 +214,29 @@ h2 {
     margin-bottom: -6px;
 }
 
+.nome_openix {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #5dd95f;
+    font-size: 16pt;
+    margin-bottom: -9px;
+    margin-top: -10px;
+}
+
+.email_openix {
+    font-family: Arial, sans-serif;
+    color: #262626;
+    text-decoration: underline;
+    margin-bottom: 6px;
+    text-decoration: none;
+}
+
+.cargo_openix {
+    font-family: Arial, sans-serif;
+    margin-bottom: -6px;
+    color: #87888c;
+}
+
 .telefone {
     margin-bottom: -6px;
 }
@@ -241,6 +266,14 @@ h2 {
 .linha {
     margin-left: 115px;
     position: absolute;
+}
+
+.line_color{
+    border-left:0.9999779527559055pt solid #489be5;
+}
+
+.line_color_openix{
+    border-left:0.9999779527559055pt solid #5dd95f;
 }
 
 #conteudoCopiado {
@@ -375,6 +408,7 @@ h2 {
         max-width: 100%;
         margin-bottom: 10px;
         padding: 10px;
+        border-radius: 12px;
         box-shadow: 0px 0px 10px rgba(29, 40, 51, 0.3);
     }
 
@@ -395,7 +429,7 @@ h2 {
     }
 
     .linha {
-        margin-left: 11%;
+        margin-left: 14vh;
     }
 
     .aviso {

@@ -95,9 +95,9 @@ let conteudoHTML_Base64 = `<!DOCTYPE html>
                 <a href="http://&{enterprise}" target="_blank">${enterprise}</a>
             </div>
             <div class="social-icons">
-                <a href="https://facebook.com"><img src="${linkFace}" alt="Facebook"></a>
-                <a href="https://instagram.com"><img src="${linkInsta}" alt="Instagram"></a>
-                <a href="https://linkedin.com"><img src="${linkLinkedin}" alt="LinkedIn"></a>
+                <a href="https://www.facebook.com/setuptecnologia"><img src="${linkFace}" alt="Facebook"></a>
+                <a href="https://www.instagram.com/setup_tecnologia/"><img src="${linkInsta}" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/setuptecnologia/?originalSubdomain=br"><img src="${linkLinkedin}" alt="LinkedIn"></a>
             </div>
         </div>
     </div>
@@ -295,8 +295,8 @@ document.getElementById('btnCopiar').addEventListener('click', function(event) {
 
         }else if (opcaoSelecionada === "opcao6") {
             color = "#252525";
-            color_name = "#70d553"
-            color_line = "#70d553"
+            color_name = "#252525";
+            color_line = "#87888c";
             color_cargo = "#87888c";
             linkFace = "https://i.postimg.cc/J4ShSPj0/face-Green.png";
             linkInsta = "https://i.postimg.cc/KY288jqy/insta-Green.png";
@@ -427,8 +427,8 @@ async function gerarETransferirHTML() {
 
         }else if (opcaoSelecionada === "opcao6") {
             color = "#252525";
-            color_name = "#70d553"
-            color_line = "#70d553"
+            color_name = "#252525";
+            color_line = "#87888c";
             color_cargo = "#87888c";
             linkFace = "https://i.postimg.cc/J4ShSPj0/face-Green.png";
             linkInsta = "https://i.postimg.cc/KY288jqy/insta-Green.png";
