@@ -20,7 +20,7 @@ body {
 .container {
     margin: 0 auto;
     padding: 20px;
-    padding-top: 19vh;
+    padding-top: 17.5vh;
     display: flex; 
     flex-direction: column; 
     align-items: center;
@@ -87,8 +87,6 @@ header {
     transition: border-color 0.3s ease;
     width: 87%;
     }
-
-
 
 #opcoes_dominio,
 #opcoes{
@@ -320,7 +318,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
     z-index: 1000;
 }
 

@@ -35,21 +35,23 @@
             </div>
             <form id="meuFormulario">
                 <p><label for="opcoes" id="nome_opcoes">Empresa:</label></p>
-                <select name="opcoes" id="opcoes" onchange="removerOpcaoPadrao(); atualizarLogo(); atualizarHTML()">
+                <select name="opcoes" id="opcoes" onchange="removerOpcaoPadrao(); atualizarLogo()">
                     <option value="" hidden></option>
                     <option value="opcao1">Setup</option>
                     <option value="opcao2">Sittax</option>
                     <option value="opcao3">Acessórias</option>
                     <option value="opcao4">BestDoctors</option>
                     <option value="opcao5">AdvEasy</option>
+                    <option value="opcao6">Openix</option>
                 </select>
 
                 <p><label for="opcoes" id="nome_opcoes">Dominio:</label></p>
-                <select disabled name="opcoes_dominio" class="campo campo-disabled" id="opcoes_dominio" onchange=" atualizarLogo(); atualizarHTML()">
+                <select disabled name="opcoes_dominio" class="campo campo-disabled" id="opcoes_dominio" onchange=" atualizarLogo()">
                     <option value="" hidden></option>
                     <option value="@setuptecnologia.com.br">@setuptecnologia.com.br</option>
                     <option value="@bestdoctorsapp.com.br">@bestdoctorsapp.com.br</option>
                     <option value="@adveasy.com.br">@adveasy.com.br</option>
+                    <option value="@openix.com.br">@openix.com.br</option>
                 </select>
 
                 <p><label for="nome" id="nome_titulo">Nome:</label></p>
