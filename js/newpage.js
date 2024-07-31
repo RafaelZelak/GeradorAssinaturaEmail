@@ -5,6 +5,8 @@
    Licença: MIT
 */
 
+/* Versão 2.0*/
+
 const color = "";
 const color_cargo = "";
 const linkFace = "";
