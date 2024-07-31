@@ -47,7 +47,6 @@ function atualizarConteudo() {
                 
                 <p class = "nome">${nome}</p>
                 <p class = "cargo">${cargo}</p>
-                <p class = "setup">Setup Tecnologia<p>
                 <p class = "email">${email_dominio}</p>
                 <a class = "email">www.setuptecnologia.com.br</a>
                 <div class="rede_social">

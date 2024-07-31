@@ -62,7 +62,7 @@ header {
 }
 
 .form {
-    width: 130%;
+    width: 150%;
     max-width: 500px;
     margin-bottom: 20px;
     padding: 20px;
@@ -392,7 +392,10 @@ h2 {
     header, footer {
         padding: 0px;
         margin-left: -17%;
+        width: 135%;
     }
+    
+    .aviso{display: none;}
 
     .container {
         margin: 0;
@@ -429,7 +432,7 @@ h2 {
     }
 
     .linha {
-        margin-left: 14vh;
+        margin-left: 110px;
     }
 
     .aviso {
@@ -449,12 +452,16 @@ h2 {
 
 /* Estilos para telas muito pequenas, como smartphones em modo retrato */
 @media (max-width: 580px) {
+    .aviso{display: none;}
+
     header, footer {
         padding: 10px;
         font-size: 10pt;
+        width: 122%;
     }
 
     .form {
+        margin-top: 12%;
         padding: 5px;
     }
 
@@ -462,7 +469,9 @@ h2 {
         padding: 8px 10px;
         font-size: 12px;
     }
-
+    .linha{
+        margin-left: 115px;
+    }
     .info-btn {
         width: 16px;
         height: 16px;
