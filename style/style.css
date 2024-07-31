@@ -206,7 +206,7 @@ h2 {
 
 .email {
     color: rgb(38, 150, 202);
-    text-decoration: underline;
+    text-decoration: none;
     margin-bottom: 6px;
 }
 
@@ -217,7 +217,7 @@ h2 {
 .nome_openix {
     font-family: Arial, sans-serif;
     font-weight: bold;
-    color: #5dd95f;
+    color: #262626;
     font-size: 16pt;
     margin-bottom: -9px;
     margin-top: -10px;
@@ -273,7 +273,7 @@ h2 {
 }
 
 .line_color_openix{
-    border-left:0.9999779527559055pt solid #5dd95f;
+    border-left:0.9999779527559055pt solid #87888c;
 }
 
 #conteudoCopiado {
@@ -455,9 +455,12 @@ h2 {
     .aviso{display: none;}
 
     header, footer {
-        padding: 10px;
+        padding: 8px;
+        width: 130%;
         font-size: 10pt;
-        width: 122%;
+    }
+    .foot h5{
+        font-size: 8pt !important;
     }
 
     .form {

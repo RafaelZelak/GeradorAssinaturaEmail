@@ -6,6 +6,7 @@
 */
 
 
+
 function atualizarConteudo() {
     const formulario = document.getElementById('meuFormulario');
 
@@ -25,52 +26,42 @@ function atualizarConteudo() {
     const email_dominio = `${emailBase}${dominioValue}`;
     const empresa = document.getElementById('opcoes');
     const empresaSelecionada = empresa.value;
-    if(empresaSelecionada === "opcao6") {
+
+    if (empresaSelecionada === "opcao6") {
         var td = document.querySelector('.linha td.line_color');
         if (td) {
             td.classList.remove('line_color');
             td.classList.add('line_color_openix');
         }
         document.getElementById('conteudoCopiado').innerHTML = `
-        <p class = "nome_openix">${nome}</p>
-        <p class = "cargo_openix">${cargo}</p>
-        <p class = "email_openix">${email_dominio}</p>
-        <a class = "email_openix">www.openix.com.br</a>
-        <div class="rede_social">
-            <img src="img/faceGreen.png" alt="facebook">
-            <img src="img/instaGreen.png" alt="instagram">
-            <img src="img/linkedinGreen.png" alt="linkedin">
-        </div>
-    `; 
-    }else{
-            document.getElementById('conteudoCopiado').innerHTML = `
-                
-                <p class = "nome">${nome}</p>
-                <p class = "cargo">${cargo}</p>
-                <p class = "email">${email_dominio}</p>
-                <a class = "email">www.setuptecnologia.com.br</a>
-                <div class="rede_social">
-                    <img src="img/face.png" alt="facebook">
-                    <img src="img/insta.png" alt="instagram">
-                    <img src="img/linkedin.png" alt="linkedin">
-                </div>
-            `;
+            <p class="nome_openix">${nome}</p>
+            <p class="cargo_openix">${cargo}</p>
+            <p class="email_openix">${email_dominio}</p>
+            <a class="email_openix">www.openix.com.br</a>
+        `; 
+    } else {
+        document.getElementById('conteudoCopiado').innerHTML = `
+            <p class="nome">${nome}</p>
+            <p class="cargo">${cargo}</p>
+            <p class="email">${email_dominio}</p>
+            <a class="email">www.setuptecnologia.com.br</a>
+            <div class="rede_social">
+                <img src="img/face.png" alt="facebook">
+                <img src="img/insta.png" alt="instagram">
+                <img src="img/linkedin.png" alt="linkedin">
+            </div>
+        `;
     }
-            if(nome == "" && email == "" && cargo == ""){
-                document.getElementById('conteudoCopiado').innerHTML = ``
-            }
-        }
-        function toggleHoverBorder() {
-            const formulario = document.getElementById('meuFormulario');
 
-            const nome = formulario.nome.value;
-            const email = formulario.email.value;
-            const cargo = formulario.cargo.value;
-            if(nome != "" && email != "" && cargo != ""){
-                document.querySelector('.content').classList.toggle('hover-border');
-                document.querySelector('.aviso').classList.toggle('aviso-hover');
-            }
-        }
+    if (nome === "" && email === "" && cargo === "") {
+        document.getElementById('conteudoCopiado').innerHTML = ``;
+    }
+}
+
+document.getElementById('meuFormulario').addEventListener('input', atualizarConteudo);
+document.getElementById('opcoes').addEventListener('change', atualizarConteudo);
+document.getElementById('opcoes_dominio').addEventListener('change', atualizarConteudo);
+
 
         function removerOpcaoPadrao() {
             var select = document.getElementById("opcoes");

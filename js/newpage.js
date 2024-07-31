@@ -184,9 +184,9 @@ let conteudoHTML = `<!DOCTYPE html>
                 <a href="http://&{enterprise}" target="_blank">${enterprise}</a>
             </div>
             <div class="social-icons">
-                <a href="https://facebook.com"><img src="${linkFace}" alt="Facebook"></a>
-                <a href="https://instagram.com"><img src="${linkInsta}" alt="Instagram"></a>
-                <a href="https://linkedin.com"><img src="${linkLinkedin}" alt="LinkedIn"></a>
+                <a href="https://www.facebook.com/setuptecnologia"><img src="${linkFace}" alt="Facebook"></a>
+                <a href="https://www.instagram.com/setup_tecnologia/"><img src="${linkInsta}" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/setuptecnologia/?originalSubdomain=br"><img src="${linkLinkedin}" alt="LinkedIn"></a>
             </div>
         </div>
     </div>
@@ -504,6 +504,7 @@ function exibirMensagem(mensagem, animationClass) {
 }
 
 function gerarConteudoHTML(nome, email_dominio, cargo, logo, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line, color_name) {
+    if (enterprise === "www.openix.com.br"){
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -582,15 +583,99 @@ function gerarConteudoHTML(nome, email_dominio, cargo, logo, color, color_cargo,
                 <a href="mailto:${email_dominio}" title="mailto:${email_dominio}">${email_dominio}</a><br>
                 <a href="http://${enterprise}" target="_blank">${enterprise}</a>
             </div>
-            <div class="social-icons">
-                <a href="https://facebook.com"><img src="${linkFace}" alt="Facebook"></a>
-                <a href="https://instagram.com"><img src="${linkInsta}" alt="Instagram"></a>
-                <a href="https://linkedin.com"><img src="${linkLinkedin}" alt="LinkedIn"></a>
-            </div>
         </div>
     </div>
 </body>
 </html>`;
+    } else {
+        return `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                }
+                .signature {
+                    display: flex;
+                    align-items: center;
+                    font-size: 16px;
+                    padding: 10px 20px;
+                }
+                .logo {
+                    margin-right: 5px;
+                }
+                .logo img {
+                    width: 95px;
+                    height: 125px;
+                }
+                .divider {
+                    width: 2px;
+                    height: 125px;
+                    background-color: ${color_line};
+                    margin: 0 15px;
+                }
+                .details {
+                    color: ${color_name};
+                }
+                .name {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+                .position {
+                    color: ${color_cargo};
+                    font-size: 16px;
+                    margin-bottom: 5px;
+                    letter-spacing: 1px;
+                }
+                .contact-info a {
+                    text-decoration: none;
+                    color: ${color};
+                    font-size: 16px;
+                }
+                .contact-info a:hover {
+                    text-decoration: underline;
+                }
+                .contact-info {
+                    margin-bottom: 10px;
+                }
+                .social-icons {
+                    margin-top: 10px;
+                }
+                .social-icons a {
+                    margin-right: 10px;
+                }
+                .social-icons img {
+                    width: 22px;
+                    height: 22px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="signature">
+                <div class="logo">
+                    <img src="${logo}" alt="Logo">
+                </div>
+                <div class="divider"></div>
+                <div class="details">
+                    <div class="name">${nome}</div>
+                    <div class="position">${cargo}</div>
+                    <div class="contact-info">
+                        <a href="mailto:${email_dominio}" title="mailto:${email_dominio}">${email_dominio}</a><br>
+                        <a href="http://${enterprise}" target="_blank">${enterprise}</a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/setuptecnologia"><img src="${linkFace}" alt="Facebook"></a>
+                        <a href="https://www.instagram.com/setup_tecnologia/"><img src="${linkInsta}" alt="Instagram"></a>
+                        <a href="https://www.linkedin.com/company/setuptecnologia/?originalSubdomain=br"><img src="${linkLinkedin}" alt="LinkedIn"></a>
+                    </div>
+                </div>
+            </div>
+        </body>
+        </html>`;
+    }
 }
 function gerarConteudoHTML_Base64(nome, email_dominio, cargo, logo_base64, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line) {
     return `<!DOCTYPE html>
@@ -672,9 +757,9 @@ function gerarConteudoHTML_Base64(nome, email_dominio, cargo, logo_base64, color
                 <a href="http://${enterprise}" target="_blank">${enterprise}</a>
             </div>
             <div class="social-icons">
-                <a href="https://facebook.com"><img src="${linkFace}" alt="Facebook"></a>
-                <a href="https://instagram.com"><img src="${linkInsta}" alt="Instagram"></a>
-                <a href="https://linkedin.com"><img src="${linkLinkedin}" alt="LinkedIn"></a>
+                <a href="https://www.facebook.com/setuptecnologia"><img src="${linkFace}" alt="Facebook"></a>
+                <a href="https://www.instagram.com/setup_tecnologia/"><img src="${linkInsta}" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/setuptecnologia/?originalSubdomain=br"><img src="${linkLinkedin}" alt="LinkedIn"></a>
             </div>
         </div>
     </div>
