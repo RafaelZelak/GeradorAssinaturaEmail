@@ -18,182 +18,64 @@ const color_name = ""
 let logo_base64 = '';
 let logo = '';
 let email_dominio = '';
-let conteudoHTML_Base64 = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .signature {
-            display: flex;
-            align-items: center;
-            font-size: 16px;
-            padding: 10px 20px;
-        }
-        .logo {
-            margin-right: 5px;
-        }
-        .logo img {
-            width: 95px;
-            height: 125px;
-        }
-        .divider {
-            width: 2px;
-            height: 125px;
-            background-color: ${color_line};
-            margin: 0 15px;
-        }
-        .details {
-            color: ${color_name};
-        }
-        .name {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .position {
-            color: ${color_cargo};
-            font-size: 16px;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-        .contact-info a {
-            text-decoration: none;
-            color: ${color};
-            font-size: 16px;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        .contact-info {
-            margin-bottom: 10px;
-        }
-        .social-icons {
-            margin-top: 10px;
-        }
-        .social-icons a {
-            margin-right: 10px;
-        }
-        .social-icons img {
-            width: 22px;
-            height: 22px;
-        }
-    </style>
-</head>
-<body>
-    <div class="signature">
-        <div class="logo">
-            <img src="${logo_base64}" alt="Logo">
-        </div>
-        <div class="divider"></div>
-        <div class="details">
-            <div class="name">${nome}</div>
-            <div class="position">${cargo}</div>
-            <div class="contact-info">
-                <a href="mailto:${email_dominio}" title="mailto:${email_dominio}">${email_dominio}</a><br>
-                <a href="http://&{enterprise}" target="_blank">${enterprise}</a>
+let conteudoHTML_Base64 = `
+<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
+    <tr>
+        <td style="width: 100px; padding: 10px;">
+            <img src="${logo_base64}" alt="Logo" style="width: 95px; height: 125px;">
+        </td>
+        <td style="width: 2px; padding: 0; background-color: ${color_line};"></td>
+        <td style="padding: 10px; line-height: 1.2;">
+            <div style="color: ${color_name}; font-size: 20px; font-weight: bold; margin: 0; margin-bottom: 10px;">${nome}</div>
+            <div style="color: ${color_cargo}; font-size: 16px; letter-spacing: 2px; margin: 0;">${cargo}</div>
+            <div style="margin: 8px 0;">
+                <a href="mailto:${email_dominio}" style="text-decoration: none; color: ${color}; font-size: 16px;">${email_dominio}</a><br>
+                <a href="http://www.setuptecnologia.com.br" target="_blank" style="text-decoration: none; color: ${color}; font-size: 16px;">${enterprise}</a>
             </div>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/setuptecnologia"><img src="${linkFace}" alt="Facebook"></a>
-                <a href="https://www.instagram.com/setup_tecnologia/"><img src="${linkInsta}" alt="Instagram"></a>
-                <a href="https://www.linkedin.com/company/setuptecnologia/?originalSubdomain=br"><img src="${linkLinkedin}" alt="LinkedIn"></a>
+            <div style="margin-top: 8px;">
+                <a href="https://www.facebook.com/setuptecnologia" style="margin-right: 8px; text-decoration: none;">
+                    <img src="${linkFace}" alt="Facebook" style="width: 22px; height: 22px; vertical-align: middle;">
+                </a>
+                <a href="https://www.instagram.com/setup_tecnologia/" style="margin-right: 8px; text-decoration: none;">
+                    <img src="${linkInsta}" alt="Instagram" style="width: 22px; height: 22px; vertical-align: middle;">
+                </a>
+                <a href="https://www.linkedin.com/company/setuptecnologia/?originalSubdomain=br">
+                    <img src="${linkLinkedin}" alt="LinkedIn" style="width: 22px; height: 22px; vertical-align: middle;">
+                </a>
             </div>
-        </div>
-    </div>
-</body>
-</html>
+        </td>
+    </tr>
+</table>
 `;
 
-let conteudoHTML = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .signature {
-            display: flex;
-            align-items: center;
-            font-size: 16px;
-            padding: 10px 20px;
-        }
-        .logo {
-            margin-right: 5px;
-        }
-        .logo img {
-            width: 95px;
-            height: 125px;
-        }
-        .divider {
-            width: 2px;
-            height: 125px;
-            background-color: ${color_cargo};
-            margin: 0 15px;
-        }
-        .details {
-            color: ${color_name};
-        }
-        .name {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .position {
-            color: ${color_cargo};
-            font-size: 16px;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-        .contact-info a {
-            text-decoration: none;
-            color: ${color};
-            font-size: 16px;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        .contact-info {
-            margin-bottom: 10px;
-        }
-        .social-icons {
-            margin-top: 10px;
-        }
-        .social-icons a {
-            margin-right: 10px;
-        }
-        .social-icons img {
-            width: 22px;
-            height: 22px;
-        }
-    </style>
-</head>
-<body>
-    <div class="signature">
-        <div class="logo">
-            <img src="${logo}" alt="Logo">
-        </div>
-        <div class="divider"></div>
-        <div class="details">
-            <div class="name">${nome}</div>
-            <div class="position">${cargo}</div>
-            <div class="contact-info">
-                <a href="mailto:${email_dominio}" title="mailto:${email_dominio}">${email_dominio}</a><br>
-                <a href="http://&{enterprise}" target="_blank">${enterprise}</a>
+let conteudoHTML = `    
+<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
+    <tr>
+        <td style="width: 100px; padding: 10px;">
+            <img src="${logo}" alt="Logo" style="width: 95px; height: 125px;">
+        </td>
+        <td style="width: 2px; padding: 0; background-color: ${color_line};"></td>
+        <td style="padding: 10px; line-height: 1.2;">
+            <div style="color: ${color_name}; font-size: 20px; font-weight: bold; margin: 0; margin-bottom: 10px;">${nome}</div>
+            <div style="color: ${color_cargo}; font-size: 16px; letter-spacing: 2px; margin: 0;">${cargo}</div>
+            <div style="margin: 8px 0;">
+                <a href="mailto:${email_dominio}" style="text-decoration: none; color: ${color}; font-size: 16px;">${email_dominio}</a><br>
+                <a href="http://www.setuptecnologia.com.br" target="_blank" style="text-decoration: none; color: ${color}; font-size: 16px;">${enterprise}</a>
             </div>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/setuptecnologia"><img src="${linkFace}" alt="Facebook"></a>
-                <a href="https://www.instagram.com/setup_tecnologia/"><img src="${linkInsta}" alt="Instagram"></a>
-                <a href="https://www.linkedin.com/company/setuptecnologia/?originalSubdomain=br"><img src="${linkLinkedin}" alt="LinkedIn"></a>
+            <div style="margin-top: 8px;">
+                <a href="https://www.facebook.com/setuptecnologia" style="margin-right: 8px; text-decoration: none;">
+                    <img src="${linkFace}" alt="Facebook" style="width: 22px; height: 22px; vertical-align: middle;">
+                </a>
+                <a href="https://www.instagram.com/setup_tecnologia/" style="margin-right: 8px; text-decoration: none;">
+                    <img src="${linkInsta}" alt="Instagram" style="width: 22px; height: 22px; vertical-align: middle;">
+                </a>
+                <a href="https://www.linkedin.com/company/setuptecnologia/?originalSubdomain=br">
+                    <img src="${linkLinkedin}" alt="LinkedIn" style="width: 22px; height: 22px; vertical-align: middle;">
+                </a>
             </div>
-        </div>
-    </div>
-</body>
-</html>
+        </td>
+    </tr>
+</table>
 `;
 
 
@@ -312,28 +194,37 @@ document.getElementById('btnCopiar').addEventListener('click', function(event) {
             logo_base64 = 'ERRO';
         }
 
-        conteudoHTML = gerarConteudoHTML(nome, email_dominio, cargo, logo, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line, color_name);
+        htmlContent = gerarConteudoHTML(nome, email_dominio, cargo, logo, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line, color_name);
         conteudoHTML_Base64 = gerarConteudoHTML_Base64(nome, email_dominio, cargo, logo_base64, color, color_cargo, linkFace, linkInsta,linkLinkedin, enterprise, color_line, color_name);
 
+        const tempDiv = document.createElement('div');
+        tempDiv.style.position = 'absolute';
+        tempDiv.style.left = '-9999px';
+        tempDiv.style.top = '-9999px';
+        tempDiv.innerHTML = htmlContent;
     
+        const styles = `
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                }
+            </style>
+        `;
+        tempDiv.insertAdjacentHTML('afterbegin', styles);
     
-    if (nome !== "" && email !== "") {
-            const tempTextarea = document.createElement('textarea');
-            tempTextarea.value = gerarConteudoHTML(nome, email_dominio, cargo, logo, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line, color_name);
+        document.body.appendChild(tempDiv);
+        const range = document.createRange();
+        range.selectNodeContents(tempDiv);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand('copy');
     
-            document.body.appendChild(tempTextarea);
-    
-            tempTextarea.select();
-            tempTextarea.setSelectionRange(0, 99999);
-    
-            document.execCommand('copy');
-    
-            document.body.removeChild(tempTextarea);
-    
-            exibirMensagem('Copiado com sucesso!', 'slideIn');
-    } else {
-        exibirMensagem('Por favor, preencha todos os campos antes de copiar.', 'slideInError');
-    }
+        document.body.removeChild(tempDiv);
+        exibirMensagem('Conteúdo copiado com sucesso!', 'slideIn');
+
 }});
 
 async function gerarETransferirHTML() {
@@ -507,266 +398,83 @@ function exibirMensagem(mensagem, animationClass) {
 
 function gerarConteudoHTML(nome, email_dominio, cargo, logo, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line, color_name) {
     if (enterprise === "www.openix.com.br"){
-    return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .signature {
-            display: flex;
-            align-items: center;
-            font-size: 16px;
-            padding: 10px 20px;
-        }
-        .logo {
-            margin-right: 5px;
-        }
-        .logo img {
-            width: 95px;
-            height: 125px;
-        }
-        .divider {
-            width: 2px;
-            height: 125px;
-            background-color: ${color_line};
-            margin: 0 15px;
-        }
-        .details {
-            color: ${color_name};
-        }
-        .name {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .position {
-            color: ${color_cargo};
-            font-size: 16px;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-        .contact-info a {
-            text-decoration: none;
-            color: ${color};
-            font-size: 16px;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        .contact-info {
-            margin-bottom: 10px;
-        }
-        .social-icons {
-            margin-top: 10px;
-        }
-        .social-icons a {
-            margin-right: 10px;
-        }
-        .social-icons img {
-            width: 22px;
-            height: 22px;
-        }
-    </style>
-</head>
-<body>
-    <div class="signature">
-        <div class="logo">
-            <img src="${logo}" alt="Logo">
-        </div>
-        <div class="divider"></div>
-        <div class="details">
-            <div class="name">${nome}</div>
-            <div class="position">${cargo}</div>
-            <div class="contact-info">
-                <a href="mailto:${email_dominio}" title="mailto:${email_dominio}">${email_dominio}</a><br>
-                <a href="http://${enterprise}" target="_blank">${enterprise}</a>
+    return `    
+<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
+    <tr>
+        <td style="width: 100px; padding: 10px;">
+            <img src="${logo}" alt="Logo" style="width: 95px; height: 125px;">
+        </td>
+        <td style="width: 2px; padding: 0; background-color: ${color_line};"></td>
+        <td style="padding: 10px; line-height: 1.2;">
+            <div style="color: ${color_name}; font-size: 20px; font-weight: bold; margin: 0; margin-bottom: 10px;">${nome}</div>
+            <div style="color: ${color_cargo}; font-size: 16px; letter-spacing: 2px; margin: 0;">${cargo}</div>
+            <div style="margin: 8px 0;">
+                <a href="mailto:${email_dominio}" style="text-decoration: none; color: ${color}; font-size: 16px;">${email_dominio}</a><br>
+                <a href="http://www.setuptecnologia.com.br" target="_blank" style="text-decoration: none; color: ${color}; font-size: 16px;">${enterprise}</a>
             </div>
-        </div>
-    </div>
-</body>
-</html>`;
+        </td>
+    </tr>
+</table>`;
     } else {
-        return `<!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                }
-                .signature {
-                    display: flex;
-                    align-items: center;
-                    font-size: 16px;
-                    padding: 10px 20px;
-                }
-                .logo {
-                    margin-right: 5px;
-                }
-                .logo img {
-                    width: 95px;
-                    height: 125px;
-                }
-                .divider {
-                    width: 2px;
-                    height: 125px;
-                    background-color: ${color_line};
-                    margin: 0 15px;
-                }
-                .details {
-                    color: ${color_name};
-                }
-                .name {
-                    font-size: 20px;
-                    font-weight: bold;
-                    margin-bottom: 5px;
-                }
-                .position {
-                    color: ${color_cargo};
-                    font-size: 16px;
-                    margin-bottom: 5px;
-                    letter-spacing: 1px;
-                }
-                .contact-info a {
-                    text-decoration: none;
-                    color: ${color};
-                    font-size: 16px;
-                }
-                .contact-info a:hover {
-                    text-decoration: underline;
-                }
-                .contact-info {
-                    margin-bottom: 10px;
-                }
-                .social-icons {
-                    margin-top: 10px;
-                }
-                .social-icons a {
-                    margin-right: 10px;
-                }
-                .social-icons img {
-                    width: 22px;
-                    height: 22px;
-                }
-            </style>
-        </head>
-        <body>
-            <div class="signature">
-                <div class="logo">
-                    <img src="${logo}" alt="Logo">
-                </div>
-                <div class="divider"></div>
-                <div class="details">
-                    <div class="name">${nome}</div>
-                    <div class="position">${cargo}</div>
-                    <div class="contact-info">
-                        <a href="mailto:${email_dominio}" title="mailto:${email_dominio}">${email_dominio}</a><br>
-                        <a href="http://${enterprise}" target="_blank">${enterprise}</a>
-                    </div>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/setuptecnologia"><img src="${linkFace}" alt="Facebook"></a>
-                        <a href="https://www.instagram.com/setup_tecnologia/"><img src="${linkInsta}" alt="Instagram"></a>
-                        <a href="https://www.linkedin.com/company/setuptecnologia/?originalSubdomain=br"><img src="${linkLinkedin}" alt="LinkedIn"></a>
-                    </div>
-                </div>
+        return `
+        <table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
+    <tr>
+        <td style="width: 100px; padding: 10px;">
+            <img src="${logo}" alt="Logo" style="width: 95px; height: 125px;">
+        </td>
+        <td style="width: 2px; padding: 0; background-color: ${color_line};"></td>
+        <td style="padding: 10px; line-height: 1.2;">
+            <div style="color: ${color_name}; font-size: 20px; font-weight: bold; margin: 0; margin-bottom: 10px;">${nome}</div>
+            <div style="color: ${color_cargo}; font-size: 16px; letter-spacing: 2px; margin: 0;">${cargo}</div>
+            <div style="margin: 8px 0;">
+                <a href="mailto:${email_dominio}" style="text-decoration: none; color: ${color}; font-size: 16px;">${email_dominio}</a><br>
+                <a href="http://www.setuptecnologia.com.br" target="_blank" style="text-decoration: none; color: ${color}; font-size: 16px;">${enterprise}</a>
             </div>
-        </body>
-        </html>`;
+            <div style="margin-top: 8px;">
+                <a href="https://www.facebook.com/setuptecnologia" style="margin-right: 8px; text-decoration: none;">
+                    <img src="${linkFace}" alt="Facebook" style="width: 22px; height: 22px; vertical-align: middle;">
+                </a>
+                <a href="https://www.instagram.com/setup_tecnologia/" style="margin-right: 8px; text-decoration: none;">
+                    <img src="${linkInsta}" alt="Instagram" style="width: 22px; height: 22px; vertical-align: middle;">
+                </a>
+                <a href="https://www.linkedin.com/company/setuptecnologia/?originalSubdomain=br">
+                    <img src="${linkLinkedin}" alt="LinkedIn" style="width: 22px; height: 22px; vertical-align: middle;">
+                </a>
+            </div>
+        </td>
+    </tr>
+</table>`;
     }
 }
 function gerarConteudoHTML_Base64(nome, email_dominio, cargo, logo_base64, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line) {
-    return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .signature {
-            display: flex;
-            align-items: center;
-            font-size: 16px;
-            padding: 10px 20px;
-        }
-        .logo {
-            margin-right: 5px;
-        }
-        .logo img {
-            width: 95px;
-            height: 125px;
-        }
-        .divider {
-            width: 2px;
-            height: 125px;
-            background-color: ${color_line};
-            margin: 0 15px;
-        }
-        .details {
-            color: ${color_name};
-        }
-        .name {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .position {
-            color: ${color_cargo};
-            font-size: 16px;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-        .contact-info a {
-            text-decoration: none;
-            color: ${color};
-            font-size: 16px;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        .contact-info {
-            margin-bottom: 10px;
-        }
-        .social-icons {
-            margin-top: 10px;
-        }
-        .social-icons a {
-            margin-right: 10px;
-        }
-        .social-icons img {
-            width: 22px;
-            height: 22px;
-        }
-    </style>
-</head>
-<body>
-    <div class="signature">
-        <div class="logo">
-            <img src="${logo_base64}" alt="Logo">
-        </div>
-        <div class="divider"></div>
-        <div class="details">
-            <div class="name">${nome}</div>
-            <div class="position">${cargo}</div>
-            <div class="contact-info">
-                <a href="mailto:${email_dominio}" title="mailto:${email_dominio}">${email_dominio}</a><br>
-                <a href="http://${enterprise}" target="_blank">${enterprise}</a>
+    return `
+    <table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
+    <tr>
+        <td style="width: 100px; padding: 10px;">
+            <img src="${logo}" alt="Logo" style="width: 95px; height: 125px;">
+        </td>
+        <td style="width: 2px; padding: 0; background-color: ${color_line};"></td>
+        <td style="padding: 10px; line-height: 1.2;">
+            <div style="color: ${color_name}; font-size: 20px; font-weight: bold; margin: 0; margin-bottom: 10px;">${nome}</div>
+            <div style="color: ${color_cargo}; font-size: 16px; letter-spacing: 2px; margin: 0;">${cargo}</div>
+            <div style="margin: 8px 0;">
+                <a href="mailto:${email_dominio}" style="text-decoration: none; color: ${color}; font-size: 16px;">${email_dominio}</a><br>
+                <a href="http://www.setuptecnologia.com.br" target="_blank" style="text-decoration: none; color: ${color}; font-size: 16px;">${enterprise}</a>
             </div>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/setuptecnologia"><img src="${linkFace}" alt="Facebook"></a>
-                <a href="https://www.instagram.com/setup_tecnologia/"><img src="${linkInsta}" alt="Instagram"></a>
-                <a href="https://www.linkedin.com/company/setuptecnologia/?originalSubdomain=br"><img src="${linkLinkedin}" alt="LinkedIn"></a>
+            <div style="margin-top: 8px;">
+                <a href="https://www.facebook.com/setuptecnologia" style="margin-right: 8px; text-decoration: none;">
+                    <img src="${linkFace}" alt="Facebook" style="width: 22px; height: 22px; vertical-align: middle;">
+                </a>
+                <a href="https://www.instagram.com/setup_tecnologia/" style="margin-right: 8px; text-decoration: none;">
+                    <img src="${linkInsta}" alt="Instagram" style="width: 22px; height: 22px; vertical-align: middle;">
+                </a>
+                <a href="https://www.linkedin.com/company/setuptecnologia/?originalSubdomain=br">
+                    <img src="${linkLinkedin}" alt="LinkedIn" style="width: 22px; height: 22px; vertical-align: middle;">
+                </a>
             </div>
-        </div>
-    </div>
-</body>
-</html>`;
+        </td>
+    </tr>
+</table>`;
 }
 
 function atualizarHTML(event) {
