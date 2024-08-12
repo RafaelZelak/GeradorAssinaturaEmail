@@ -14,7 +14,7 @@ const linkInsta = "";
 const linkLinkedin = "";
 const enterprise = "";
 const color_line= "";
-const color_name = ""
+const color_name = "";
 let logo_base64 = '';
 let logo = '';
 let email_dominio = '';
@@ -30,6 +30,7 @@ let conteudoHTML_Base64 = `
             <div style="color: ${color_cargo}; font-size: 16px; letter-spacing: 2px; margin: 0;">${cargo}</div>
             <div style="margin: 8px 0;">
                 <a href="mailto:${email_dominio}" style="text-decoration: none; color: ${color}; font-size: 16px;">${email_dominio}</a><br>
+                <p style="color: ${color}; font-size: 16px; margin-top: 5px; margin-bottom: 5px;">${telefone}</p>
                 <a href="http://www.setuptecnologia.com.br" target="_blank" style="text-decoration: none; color: ${color}; font-size: 16px;">${enterprise}</a>
             </div>
             <div style="margin-top: 8px;">
@@ -60,6 +61,7 @@ let conteudoHTML = `
             <div style="color: ${color_cargo}; font-size: 16px; letter-spacing: 2px; margin: 0;">${cargo}</div>
             <div style="margin: 8px 0;">
                 <a href="mailto:${email_dominio}" style="text-decoration: none; color: ${color}; font-size: 16px;">${email_dominio}</a><br>
+                <p style="color: ${color}; font-size: 16px; margin-top: 5px; margin-bottom: 5px;">${telefone}</p>
                 <a href="http://www.setuptecnologia.com.br" target="_blank" style="text-decoration: none; color: ${color}; font-size: 16px;">${enterprise}</a>
             </div>
             <div style="margin-top: 8px;">
@@ -89,6 +91,7 @@ document.getElementById('btnCopiar').addEventListener('click', function(event) {
     event.preventDefault();
     const select = document.getElementById('opcoes');
     const nome = document.getElementById('nome').value;
+    const telefone = document.getElementById('telefone').value;
     const cargo = document.getElementById('cargo').value;
     let color = "";
     let color_cargo = "";
@@ -194,8 +197,8 @@ document.getElementById('btnCopiar').addEventListener('click', function(event) {
             logo_base64 = 'ERRO';
         }
 
-        htmlContent = gerarConteudoHTML(nome, email_dominio, cargo, logo, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line, color_name);
-        conteudoHTML_Base64 = gerarConteudoHTML_Base64(nome, email_dominio, cargo, logo_base64, color, color_cargo, linkFace, linkInsta,linkLinkedin, enterprise, color_line, color_name);
+        htmlContent = gerarConteudoHTML(nome, email_dominio, cargo, logo, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line, color_name,telefone);
+        conteudoHTML_Base64 = gerarConteudoHTML_Base64(nome, email_dominio, cargo, logo_base64, color, color_cargo, linkFace, linkInsta,linkLinkedin, enterprise, color_line, color_name, telefone);
 
         const tempDiv = document.createElement('div');
         tempDiv.style.position = 'absolute';
@@ -231,6 +234,7 @@ async function gerarETransferirHTML() {
     const select = document.getElementById('opcoes');
     const nome = document.getElementById('nome').value;
     const cargo = document.getElementById('cargo').value;
+    const telefone = document.getElementById('telefone').value;
     let color = "";
     let color_cargo = "";
     let color_line = "";
@@ -335,8 +339,8 @@ async function gerarETransferirHTML() {
             logo_base64 = 'ERRO';
         }
 
-        conteudoHTML = gerarConteudoHTML(nome, email_dominio, cargo, logo, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line, color_name);
-        conteudoHTML_Base64 = gerarConteudoHTML_Base64(nome, email_dominio, cargo, logo_base64, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line, color_name);
+        conteudoHTML = gerarConteudoHTML(nome, email_dominio, cargo, logo, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line, color_name, telefone);
+        conteudoHTML_Base64 = gerarConteudoHTML_Base64(nome, email_dominio, cargo, logo_base64, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line, color_name, telefone);
 
             const tempElement = document.createElement("div");
 
@@ -396,7 +400,7 @@ function exibirMensagem(mensagem, animationClass) {
     }, 2000);
 }
 
-function gerarConteudoHTML(nome, email_dominio, cargo, logo, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line, color_name) {
+function gerarConteudoHTML(nome, email_dominio, cargo, logo, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line, color_name, telefone) {
     if (enterprise === "www.openix.com.br"){
     return `    
 <table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
@@ -410,6 +414,7 @@ function gerarConteudoHTML(nome, email_dominio, cargo, logo, color, color_cargo,
             <div style="color: ${color_cargo}; font-size: 16px; letter-spacing: 2px; margin: 0;">${cargo}</div>
             <div style="margin: 8px 0;">
                 <a href="mailto:${email_dominio}" style="text-decoration: none; color: ${color}; font-size: 16px;">${email_dominio}</a><br>
+                <p style="color: ${color}; font-size: 16px; margin-top: 5px; margin-bottom: 5px;">${telefone}</p>
                 <a href="http://www.setuptecnologia.com.br" target="_blank" style="text-decoration: none; color: ${color}; font-size: 16px;">${enterprise}</a>
             </div>
         </td>
@@ -428,6 +433,7 @@ function gerarConteudoHTML(nome, email_dominio, cargo, logo, color, color_cargo,
             <div style="color: ${color_cargo}; font-size: 16px; letter-spacing: 2px; margin: 0;">${cargo}</div>
             <div style="margin: 8px 0;">
                 <a href="mailto:${email_dominio}" style="text-decoration: none; color: ${color}; font-size: 16px;">${email_dominio}</a><br>
+                <p style="color: ${color}; font-size: 16px; margin-top: 5px; margin-bottom: 5px;">${telefone}</p>
                 <a href="http://www.setuptecnologia.com.br" target="_blank" style="text-decoration: none; color: ${color}; font-size: 16px;">${enterprise}</a>
             </div>
             <div style="margin-top: 8px;">
@@ -446,12 +452,12 @@ function gerarConteudoHTML(nome, email_dominio, cargo, logo, color, color_cargo,
 </table>`;
     }
 }
-function gerarConteudoHTML_Base64(nome, email_dominio, cargo, logo_base64, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line) {
+function gerarConteudoHTML_Base64(nome, email_dominio, cargo, logo_base64, color, color_cargo, linkFace, linkInsta, linkLinkedin, enterprise, color_line, color_name, telefone) {
     return `
     <table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
     <tr>
         <td style="width: 100px; padding: 10px;">
-            <img src="${logo}" alt="Logo" style="width: 95px; height: 125px;">
+            <img src="${logo_base64}" alt="Logo" style="width: 95px; height: 125px;">
         </td>
         <td style="width: 2px; padding: 0; background-color: ${color_line};"></td>
         <td style="padding: 10px; line-height: 1.2;">
@@ -459,6 +465,7 @@ function gerarConteudoHTML_Base64(nome, email_dominio, cargo, logo_base64, color
             <div style="color: ${color_cargo}; font-size: 16px; letter-spacing: 2px; margin: 0;">${cargo}</div>
             <div style="margin: 8px 0;">
                 <a href="mailto:${email_dominio}" style="text-decoration: none; color: ${color}; font-size: 16px;">${email_dominio}</a><br>
+                <p style="color: ${color}; font-size: 16px; margin-top: 5px; margin-bottom: 5px;">${telefone}</p>
                 <a href="http://www.setuptecnologia.com.br" target="_blank" style="text-decoration: none; color: ${color}; font-size: 16px;">${enterprise}</a>
             </div>
             <div style="margin-top: 8px;">

@@ -22,11 +22,11 @@ body {
 .container {
     margin: 0 auto;
     padding: 20px;
-    padding-top: 17.5vh;
+    padding-top: 9.8vh;
     display: flex; 
     flex-direction: column; 
     align-items: center;
-    margin-left: 27%; 
+    margin-left: 22%; 
     flex-grow: 1;
 }
 
@@ -40,6 +40,7 @@ footer {
     position: fixed;
     height: 2vh;
     bottom: 0;
+    z-index: 999 !important;
     box-shadow: -5px -5px 70px rgba(0, 0, 0, 0.22);
 }
 
@@ -67,20 +68,26 @@ header {
     width: 150%;
     max-width: 500px;
     margin-bottom: 20px;
-    padding: 20px;
     box-shadow: 0px 0px 15px rgba(29, 40, 51, 0.3);
     border-radius: 5%;
+    padding-top: 15px;
+    padding-bottom: 15px;
     background: #fff;
+}
+
+#meuFormulario{
+    margin-left: 25px;
 }
 
 #opcoes,
 #opcoes_dominio,
 #email,
 #cargo,
-#nome {
+#nome,
+#telefone {
     border: 2px solid rgb(38, 150, 202);
     border-radius: 20px;
-    padding: 10px;
+    padding: 9px;
     font-size: 16px;
     color: rgb(0, 116, 170);
     outline: none;
@@ -88,7 +95,49 @@ header {
     width: 87%;
 }
 
+#telefone, #nome_telefone{
+    display: none;
+}
 
+#container_telefone {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+#telefone_txt {
+    display: block;
+    font-size: 16px;
+    margin-left: 50px;
+    margin-top: 5px;
+    color: rgb(0, 116, 170);
+}
+
+#add_telefone {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 33px;
+    height: 33px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    left: 3.2%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+#add_telefone.remover {
+    background-color: #dc3545;
+    left: 83.2%;
+    padding-bottom: 4px;
+}
 
 #opcoes_dominio,
 #opcoes{
@@ -124,19 +173,39 @@ header {
 }
 
 #btnHTML,
-#btnCopiar {
+#btnCopiar,
+#btnDocument {
     background-color: transparent;
     border: 2px solid rgb(38, 150, 202);
     border-radius: 20px;
-    color: rgb(38, 150, 202);
+    color: rgb(0, 0, 0);
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 20px;
     width: 80%;
-    margin-left: 10%;
-    font-size: 12pt;
+    margin-left: 6.7%;
+}
+
+#btnDocument{
+    letter-spacing: 0px;
+    animation: blink 1.6s infinite;
+    margin-bottom: 10px;
+}
+
+#btnDocument:hover{
+    background-color: rgb(38, 150, 202);
+    color: white;
+}
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        background-color: rgb(38, 150, 202);
+        color: white;
+    }
 }
 
 #btnHTML {
@@ -212,6 +281,13 @@ h2 {
     margin-bottom: 6px;
 }
 
+.telefone{
+    color: rgb(38, 150, 202);
+    text-decoration: none;
+    margin-top: -1px;
+    padding-bottom: 8px;
+}
+
 .cargo {
     margin-bottom: -6px;
 }
@@ -237,6 +313,13 @@ h2 {
     font-family: Arial, sans-serif;
     margin-bottom: -6px;
     color: #87888c;
+}
+
+.telefone_openix{
+    color: #262626;
+    text-decoration: none;
+    margin-top: -1px;
+    margin-bottom: 4px;
 }
 
 .telefone {
@@ -395,6 +478,7 @@ h2 {
         padding: 0px;
         margin-left: -17%;
         width: 135%;
+        z-index: 999 !important;
     }
     
     .aviso{display: none;}
@@ -460,6 +544,7 @@ h2 {
         padding: 8px;
         width: 130%;
         font-size: 10pt;
+        z-index: 999 !important;
     }
     .foot h5{
         font-size: 8pt !important;
@@ -467,7 +552,7 @@ h2 {
 
     .form {
         margin-top: 12%;
-        padding: 5px;
+        padding: 35px;
     }
 
     #btnHTML, #btnCopiar {

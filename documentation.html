@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutoriais Assinaturas Setup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" type="image/png" href="img/logo_ico.png">
+    <style>
+        html::-webkit-scrollbar {
+            width: 8px; /* Largura da barra de rolagem */
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background-color: #888; /* Cor da parte rolável */
+            border-radius: 10px; /* Arredondar as bordas */
+        }
+
+        html::-webkit-scrollbar-thumb:hover {
+            background-color: #555; /* Cor ao passar o mouse */
+        }
+
+        html::-webkit-scrollbar-track {
+            background-color: #f1f1f1; /* Cor do fundo da barra */
+            border-radius: 10px;
+        }
+        .collapse-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.6s ease;
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-left: 3%;
+        }
+        .expanded {
+            max-height: 700px;
+            overflow: auto;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        /* Estilizar a barra de rolagem */
+        .expanded::-webkit-scrollbar {
+            width: 8px; /* Largura da barra de rolagem */
+        }
+
+        .expanded::-webkit-scrollbar-thumb {
+            background-color: #888; /* Cor da parte rolável */
+            border-radius: 10px; /* Arredondar as bordas */
+        }
+
+        .expanded::-webkit-scrollbar-thumb:hover {
+            background-color: #555; /* Cor ao passar o mouse */
+        }
+
+        .expanded::-webkit-scrollbar-track {
+            background-color: #f1f1f1; /* Cor do fundo da barra */
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100 p-6">
+    <button id="btnDocument"class="flex items-center px-4 py-2 bg-grey-200 text-white font-semibold rounded-lg shadow-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition duration-200" style="color: black;">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Voltar
+    </button>
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">Tutoriais</h1>
+
+        <!-- Tutorial 1 -->
+        <div class="bg-white shadow-md rounded-lg mb-4">
+            <button onclick="toggleCollapse('content1')" class="w-full text-left p-4 focus:outline-none">
+                <h2 class="text-xl font-semibold text-gray-700">Como criar assinatura</h2>
+            </button>
+            <div id="content1" class="collapse-content">
+                <p class="text-gray-600" style="font-size: 20pt;">Para criar a assinatura primeiramente você seleciona a empresa e o domínio:</p>
+                <br>
+                <img src="img/tutorial_service_1.jpeg">
+                <br>
+                <p class="text-gray-600" style="font-size: 20pt;">Após isso coloque suas informações (Nome, Cargo, Email):</p>
+                <br>
+                <img src="img/tutorial_service_2.jpeg">
+                <br>
+                <p class="text-gray-600" style="font-size: 20pt;">Neste momento, aparecerá no lado direito uma pré visualização de como ficará sua assinatura</p>
+                <br>
+                <p class="text-gray-600" style="font-size: 20pt;">Agora basta clicar em "Gerar HTML e PNG" ou "Copiar" e seguir os proximos tutoriais para enexar nos provedores de Email!</p>
+                <br>
+                <p class="text-gray-600" style="font-size: 20pt;">Para os seguintes provedores:</p>
+                <br>
+                <p class="text-gray-600" style="font-size: 20pt;">- Thunderbird</p>
+                <p class="text-gray-600" style="font-size: 20pt;">- Outlook</p>
+                <p class="text-gray-600" style="font-size: 20pt;">- Gmail</p>
+                <br>
+                <p class="text-gray-600" style="font-size: 20pt;">Siga os proximos tutorias, para outros provedores, entre em contado com o suporte!</p>
+                <br>
+            </div>
+        </div>
+
+        <!-- Tutorial 2 -->
+        <div class="bg-white shadow-md rounded-lg mb-4">
+            <button onclick="toggleCollapse('content2')" class="w-full text-left p-4 focus:outline-none">
+                <h2 class="text-xl font-semibold text-gray-700">Thunderbird</h2>
+            </button>
+            <div id="content2" class="collapse-content">
+                <p class="text-gray-600" style="font-size: 20pt;">Seguindo a partir do tutorial "Como criar assinatura"</p>
+                <br>
+                <img src="img/tutorial_thunder_init_1.png">
+                <br>
+                <img src="img/tutorial_thunder_init_2.png">
+                <br>
+                <p class="text-gray-600" style="font-size: 20pt;">Agora com o Thunderbird aberto, vamos entrar no menu de configurações</p>
+                <br>
+                <img src="img/tutorial_thunder_1.png">
+                <br>
+                <p class="text-gray-600" style="font-size: 20pt;">Após entrar em configurações entre em "configurações de contas"</p>
+                <br>
+                <img src="img/tutorial_thunder_2.png">
+                <br>
+                <img src="img/tutorial_thunder_3.png">
+                <br>
+                <img src="img/tutorial_thunder_4.png">
+                <br>
+                <p class="text-gray-600" style="font-size: 20pt;">Note que caso você tenha permitido a trnsferência de multiplos arquivos (como mostrado na imagem 2) aparecerão 2 arquivos, selecione o arquivo HTML(O arquivo que não é uma imagem)</p>
+                <br>
+                <img src="img/tutorial_thunder_5.png">
+                <br>
+                <p class="text-gray-600" style="font-size: 20pt;">E pronto, agora ao começar a escrever um novo email, a assinatura já estará anexada!</p>
+                <br>
+                <img src="img/tutorial_thunder_6.png">
+                <br>
+            </div>
+        </div>
+
+        <!-- Tutorial 3 -->
+        <div class="bg-white shadow-md rounded-lg mb-4">
+            <button onclick="toggleCollapse('content3')" class="w-full text-left p-4 focus:outline-none">
+                <h2 class="text-xl font-semibold text-gray-700">Outlook</h2>
+            </button>
+            <div id="content3" class="collapse-content">
+                <h1 class="text-gray-600">Em breve!</h1>
+            </div>
+        </div>
+
+        <!-- Tutorial 4 -->
+        <div class="bg-white shadow-md rounded-lg mb-4">
+            <button onclick="toggleCollapse('content4')" class="w-full text-left p-4 focus:outline-none">
+                <h2 class="text-xl font-semibold text-gray-700">Gmail</h2>
+            </button>
+            <div id="content4" class="collapse-content">
+                <h1 class="text-gray-600">Em breve!</h1>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleCollapse(id) {
+            const content = document.getElementById(id);
+            content.classList.toggle('expanded');
+        }
+        document.getElementById('btnDocument').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = 'index.html';
+        });
+    </script>
+
+</body>
+</html>

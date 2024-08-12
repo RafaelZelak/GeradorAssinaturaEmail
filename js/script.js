@@ -7,12 +7,98 @@
 
 /* Versão 3.0*/
 
+const addButton = document.getElementById('add_telefone');
+const telefoneLabel = document.getElementById('nome_telefone');
+const telefoneTxt = document.getElementById('telefone_txt');
+let telefoneGlobal = false;
+
+const telefoneInput = document.getElementById('telefone');
+
+telefoneInput.addEventListener('input', (event) => {
+    let input = telefoneInput.value;
+    
+    input = input.replace(/\D/g, '');
+
+    if (input.length > 11) {
+        input = input.substring(0, 11);
+    }
+
+    if (input.length >= 2) {
+        const ddd = input.substring(0, 2);
+        let telefone = input.substring(2);
+
+        if (telefone.length >= 8) {
+            if (telefone.length === 8 && telefone.charAt(0) !== '9') {
+                telefone = '9' + telefone;
+            }
+            telefone = telefone.substring(0, 5) + '-' + telefone.substring(5);
+        } else if (telefone.length > 3) {
+            telefone = telefone.substring(0, 4) + '-' + telefone.substring(4);
+        }
+
+        telefoneInput.value = `(${ddd}) ${telefone}`;
+    } else {
+        telefoneInput.value = input;
+    }
+});
+
+addButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    if (addButton.textContent === '+') {
+        telefoneGlobal = true;
+        addButton.textContent = '-';
+        addButton.classList.add('remover');
+        telefoneLabel.style.display = 'block';
+        telefoneInput.style.display = 'block';
+        telefoneInput.disabled = false;
+        telefoneTxt.style.display = 'none';
+    } else {
+        telefoneGlobal = false;
+        addButton.textContent = '+';
+        addButton.classList.remove('remover');
+        telefoneLabel.style.display = 'none';
+        telefoneInput.style.display = 'none';
+        telefoneInput.disabled = true;
+        telefoneInput.value = '';
+        telefoneTxt.style.display = 'block';
+    }
+    atualizarConteudo();
+});
+
+
+
+function formatarTelefone(input) {
+    input = input.replace(/\D/g, '');
+
+    if (input.length >= 2) {
+        const ddd = input.substring(0, 2);
+        let telefone = input.substring(2);
+
+        if (telefone.length >= 8) {
+            if (telefone.length === 8 && telefone.charAt(0) !== '9') {
+                telefone = '9' + telefone;
+            }
+            telefone = telefone.substring(0, 5) + '-' + telefone.substring(5);
+        } else if (telefone.length > 3) {
+            telefone = telefone.substring(0, 4) + '-' + telefone.substring(4);
+        }
+
+        return `(${ddd}) ${telefone}`;
+    } else {
+        return input;
+    }
+}
+
 function atualizarConteudo() {
     const formulario = document.getElementById('meuFormulario');
 
     const nome = formulario.nome.value;
     const email = formulario.email.value;
     const cargo = formulario.cargo.value;
+    let telefone = formulario.telefone.value;
+
+    telefone = formatarTelefone(telefone);
 
     const atPosition = email.indexOf('@');
     let emailBase = email;
@@ -33,24 +119,49 @@ function atualizarConteudo() {
             td.classList.remove('line_color');
             td.classList.add('line_color_openix');
         }
-        document.getElementById('conteudoCopiado').innerHTML = `
-            <p class="nome_openix">${nome}</p>
-            <p class="cargo_openix">${cargo}</p>
-            <p class="email_openix">${email_dominio}</p>
-            <a class="email_openix">www.openix.com.br</a>
-        `; 
+        if (telefoneGlobal === true) {
+            document.getElementById('conteudoCopiado').innerHTML = `
+                <p class="nome_openix">${nome}</p>
+                <p class="cargo_openix">${cargo}</p>
+                <p class="email_openix">${email_dominio}</p>
+                <p class="telefone_openix">${telefone}</p>
+                <a class="email_openix">www.openix.com.br</a>
+                `;
+        }else{
+                document.getElementById('conteudoCopiado').innerHTML = `
+                    <p class="nome_openix">${nome}</p>
+                    <p class="cargo_openix">${cargo}</p>
+                    <p class="email_openix">${email_dominio}</p>
+                    <a class="email_openix">www.openix.com.br</a>
+                `; 
+        }
     } else {
-        document.getElementById('conteudoCopiado').innerHTML = `
-            <p class="nome">${nome}</p>
-            <p class="cargo">${cargo}</p>
-            <p class="email">${email_dominio}</p>
-            <a class="email">www.setuptecnologia.com.br</a>
-            <div class="rede_social">
-                <img src="img/face.png" alt="facebook">
-                <img src="img/insta.png" alt="instagram">
-                <img src="img/linkedin.png" alt="linkedin">
-            </div>
-        `;
+        if (telefoneGlobal === true) {
+            document.getElementById('conteudoCopiado').innerHTML = `
+                <p class="nome">${nome}</p>
+                <p class="cargo">${cargo}</p>
+                <p class="email">${email_dominio}</p>
+                <p class="telefone">${telefone}</p>
+                <a class="email">www.setuptecnologia.com.br</a>
+                <div class="rede_social">
+                    <img src="img/face.png" alt="facebook">
+                    <img src="img/insta.png" alt="instagram">
+                    <img src="img/linkedin.png" alt="linkedin">
+                </div>
+            `;
+        } else {
+            document.getElementById('conteudoCopiado').innerHTML = `
+                <p class="nome">${nome}</p>
+                <p class="cargo">${cargo}</p>
+                <p class="email">${email_dominio}</p>
+                <a class="email">www.setuptecnologia.com.br</a>
+                <div class="rede_social">
+                    <img src="img/face.png" alt="facebook">
+                    <img src="img/insta.png" alt="instagram">
+                    <img src="img/linkedin.png" alt="linkedin">
+                </div>
+            `;
+        }
     }
 
     if (nome === "" && email === "" && cargo === "") {
@@ -75,6 +186,7 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
             document.getElementById("cargo").disabled = false;
             document.getElementById("email").disabled = false;
             document.getElementById("opcoes_dominio").disabled = false;
+            document.getElementById("telefone").disabled = false;
         }
 
         function atualizarLogo() {
@@ -82,9 +194,9 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
             var logo = document.getElementById("logo");
             var header = document.querySelector(".head");
             var footer = document.querySelector(".foot");
-            var elementos = document.querySelectorAll("#nome, #cargo, #email, #opcoes, #btnHTML, #btnCopiar, #opcoes_dominio");
-            var titulos = document.querySelectorAll("#nome_titulo, #nome_email, #nome_cargo, #nome_opcoes");
-            var text = document.querySelectorAll("#nome, #cargo, #email, #opcoes, #btnHTML, #btnCopiar,#opcoes_dominio");
+            var elementos = document.querySelectorAll("#nome, #cargo, #email, #opcoes, #btnHTML, #btnCopiar, #opcoes_dominio, #telefone");
+            var titulos = document.querySelectorAll("#nome_titulo, #nome_email, #nome_cargo, #nome_opcoes, #nome_telefone");
+            var text = document.querySelectorAll("#nome, #cargo, #email, #opcoes, #btnHTML, #btnCopiar,#opcoes_dominio, #telefone");
 
         
             if (select.value === "opcao1") {
