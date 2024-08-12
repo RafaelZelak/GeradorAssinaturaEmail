@@ -5,7 +5,7 @@
    Licença: MIT
 */
 
-/* Versão 3.0*/
+/* Versão 4.0*/
 
 const color = "";
 const color_cargo = "";

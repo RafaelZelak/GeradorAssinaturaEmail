@@ -5,7 +5,7 @@
    Licença: MIT
 */
 
-/* Versão 3.0*/
+/* Versão 4.0*/
 
 const addButton = document.getElementById('add_telefone');
 const telefoneLabel = document.getElementById('nome_telefone');
