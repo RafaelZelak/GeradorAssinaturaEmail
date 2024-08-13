@@ -109,12 +109,12 @@ header {
     display: block;
     font-size: 16px;
     margin-left: 50px;
-    margin-top: 5px;
+    margin-top: 4px;
     color: rgb(0, 116, 170);
 }
 
 #add_telefone {
-    background-color: #007bff;
+    background-color: rgb(0, 116, 170);;
     color: white;
     border: none;
     border-radius: 50%;
@@ -134,7 +134,6 @@ header {
 }
 
 #add_telefone.remover {
-    background-color: #dc3545;
     left: 83.2%;
     padding-bottom: 4px;
 }
@@ -534,11 +533,21 @@ h2 {
         position: static;
         margin: 0;
     }
+
+    #add_telefone.remover {
+        left: 84.3%;
+        padding-bottom: 4px;
+    }
 }
 
 /* Estilos para telas muito pequenas, como smartphones em modo retrato */
 @media (max-width: 580px) {
     .aviso{display: none;}
+
+    #add_telefone.remover {
+        left: 81.2%;
+        padding-bottom: 4px;
+    }
 
     header, footer {
         padding: 8px;

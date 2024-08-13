@@ -51,7 +51,6 @@ addButton.addEventListener('click', (event) => {
         addButton.classList.add('remover');
         telefoneLabel.style.display = 'block';
         telefoneInput.style.display = 'block';
-        telefoneInput.disabled = false;
         telefoneTxt.style.display = 'none';
     } else {
         telefoneGlobal = false;
@@ -59,7 +58,6 @@ addButton.addEventListener('click', (event) => {
         addButton.classList.remove('remover');
         telefoneLabel.style.display = 'none';
         telefoneInput.style.display = 'none';
-        telefoneInput.disabled = true;
         telefoneInput.value = '';
         telefoneTxt.style.display = 'block';
     }
@@ -203,6 +201,9 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
                 logo.src = "img/logo.png";
                 header.style.backgroundColor = "#0074AAFF";
                 footer.style.backgroundColor = "#0074AAFF";
+                document.getElementById('add_telefone').style.backgroundColor = "#0074AAFF";
+                document.getElementById('telefone_txt').style.color = "#0074AAFF";
+
                 for (var i = 0; i < elementos.length; i++) {
                     elementos[i].style.border = "2px solid #0074AAFF";
                 }
@@ -216,6 +217,8 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
                 logo.src = "img/sintax.png";
                 header.style.backgroundColor = "#fb6a40";
                 footer.style.backgroundColor = "#fb6a40";
+                document.getElementById('add_telefone').style.backgroundColor = "#fb6a40";
+                document.getElementById('telefone_txt').style.color = "#fb6a40";
                 for (var i = 0; i < elementos.length; i++) {
                     elementos[i].style.border = "2px solid #fb6a40";
                 }
@@ -229,6 +232,8 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
                 logo.src = "img/acessorias.png";
                 header.style.backgroundColor = "#d19e65";
                 footer.style.backgroundColor = "#d19e65";
+                document.getElementById('add_telefone').style.backgroundColor = "#d19e65";
+                document.getElementById('telefone_txt').style.color = "#d19e65";   
                 for (var i = 0; i < elementos.length; i++) {
                     elementos[i].style.border = "2px solid #d19e65";
                 }
@@ -242,6 +247,8 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
                 logo.src = "img/beatdoctor.png";
                 header.style.backgroundColor = "#ff7478"; 
                 footer.style.backgroundColor = "#ff7478"; 
+                document.getElementById('add_telefone').style.backgroundColor = "#ff7478";
+                document.getElementById('telefone_txt').style.color = "#ff7478"; 
                 for (var i = 0; i < elementos.length; i++) {
                     elementos[i].style.border = "2px solid #ff7478";
                 }
@@ -255,6 +262,8 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
                 logo.src = "img/adveasy.png";
                 header.style.backgroundColor = "#14243b";
                 footer.style.backgroundColor = "#14243b";
+                document.getElementById('add_telefone').style.backgroundColor = "#14243b";
+                document.getElementById('telefone_txt').style.color = "#14243b"; 
                 for (var i = 0; i < elementos.length; i++) {
                     elementos[i].style.border = "2px solid #14243b";
                 }
@@ -268,6 +277,8 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
                 logo.src = "img/openix.png";
                 header.style.backgroundColor = "#579b51";
                 footer.style.backgroundColor = "#579b51";
+                document.getElementById('add_telefone').style.backgroundColor = "#579b51";
+                document.getElementById('telefone_txt').style.color = "#579b51"; 
                 for (var i = 0; i < elementos.length; i++) {
                     elementos[i].style.border = "2px solid #579b51";
                 }
