@@ -16,7 +16,7 @@ const telefoneInput = document.getElementById('telefone');
 
 telefoneInput.addEventListener('input', (event) => {
     let input = telefoneInput.value;
-    
+
     input = input.replace(/\D/g, '');
 
     if (input.length > 11) {
@@ -100,7 +100,7 @@ function atualizarConteudo() {
 
     const atPosition = email.indexOf('@');
     let emailBase = email;
-    
+
     if (atPosition !== -1) {
         emailBase = email.substring(0, atPosition);
     }
@@ -124,20 +124,52 @@ function atualizarConteudo() {
                 <p class="email_openix">${email_dominio}</p>
                 <p class="telefone_openix">${telefone}</p>
                 <a class="email_openix">www.openix.com.br</a>
+            <div style="margin-top: 8px;">
+                <a href="https://www.facebook.com/share/kvHWymWSyzSUgEyB/?mibextid=LQQJ4d" style="text-decoration: none;">
+                    <img src="https://assinaturas.setuptecnologia.com/img/faceGreen.png" alt="Facebook" style="width: 22px; height: 22px;">
+                </a>
+                <a href="https://www.instagram.com/openixtecnologia/profilecard/?igsh=MTc0YW5sNDRvNmtkcA==" style="text-decoration: none;">
+                    <img src="https://assinaturas.setuptecnologia.com/img/instaGreen.png" alt="Instagram" style="width: 22px; height: 22px;">
+                </a>
+                <a href="https://www.linkedin.com/company/openixtecnologia">
+                    <img src="https://assinaturas.setuptecnologia.com/img/linkedinGreen.png" alt="LinkedIn" style="width: 22px; height: 22px;">
+                </a>
+            </div>
                 `;
         }else{
                 document.getElementById('conteudoCopiado').innerHTML = `
-                    <p class="nome_openix">${nome}</p>
-                    <p class="cargo_openix">${cargo}</p>
+                    <style>
+                        @font-face {
+                            font-family: 'FontePadrao';
+                            src: url('https://assinaturas.setuptecnologia.com/fonts/LinearGrotesk-Regular.otf') format('opentype');
+                            font-weight: normal;
+                            font-style: normal;
+                        }
+                    </style>
+                    <p class="nome_openix" style="font-family: 'FontePadrao';">${nome}</p>
+                    <p class="cargo_openix" style="font-family: 'FontePadrao';">${cargo}</p>
                     <p class="email_openix">${email_dominio}</p>
                     <a class="email_openix">www.openix.com.br</a>
-                `; 
+                    <div class="rede_social">
+                        <img src="https://assinaturas.setuptecnologia.com/img/faceGreen.png" alt="facebook">
+                        <img src="https://assinaturas.setuptecnologia.com/img/instaGreen.png" alt="instagram">
+                        <img src="https://assinaturas.setuptecnologia.com/img/linkedinGreen.png" alt="linkedin">
+                    </div>
+                `;
         }
     } else {
         if (telefoneGlobal === true) {
             document.getElementById('conteudoCopiado').innerHTML = `
-                <p class="nome">${nome}</p>
-                <p class="cargo">${cargo}</p>
+                <style>
+                    @font-face {
+                        font-family: 'FontePadrao';
+                        src: url('https://assinaturas.setuptecnologia.com/fonts/LinearGrotesk-Regular.otf') format('opentype');
+                        font-weight: normal;
+                        font-style: normal;
+                    }
+                </style>
+                <p class="nome" style="font-family: 'FontePadrao';">${nome}</p>
+                <p class="cargo" style="font-family: 'FontePadrao';">${cargo}</p>
                 <p class="email">${email_dominio}</p>
                 <p class="telefone">${telefone}</p>
                 <a class="email">www.setuptecnologia.com.br</a>
@@ -149,8 +181,16 @@ function atualizarConteudo() {
             `;
         } else {
             document.getElementById('conteudoCopiado').innerHTML = `
-                <p class="nome">${nome}</p>
-                <p class="cargo">${cargo}</p>
+                <style>
+                    @font-face {
+                        font-family: 'FontePadrao';
+                        src: url('https://assinaturas.setuptecnologia.com/fonts/LinearGrotesk-Regular.otf') format('opentype');
+                        font-weight: normal;
+                        font-style: normal;
+                    }
+                </style>
+                <p class="nome" style="font-family: 'FontePadrao';">${nome}</p>
+                <p class="cargo" style="font-family: 'FontePadrao';">${cargo}</p>
                 <p class="email">${email_dominio}</p>
                 <a class="email">www.setuptecnologia.com.br</a>
                 <div class="rede_social">
@@ -175,11 +215,11 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
         function removerOpcaoPadrao() {
             var select = document.getElementById("opcoes");
             var option = select.options[0];
-        
+
             if (option.value === "") {
                 select.remove(0);
             }
-            
+
             document.getElementById("nome").disabled = false;
             document.getElementById("cargo").disabled = false;
             document.getElementById("email").disabled = false;
@@ -196,7 +236,7 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
             var titulos = document.querySelectorAll("#nome_titulo, #nome_email, #nome_cargo, #nome_opcoes, #nome_telefone");
             var text = document.querySelectorAll("#nome, #cargo, #email, #opcoes, #btnHTML, #btnCopiar,#opcoes_dominio, #telefone");
 
-        
+
             if (select.value === "opcao1") {
                 logo.src = "img/logo.png";
                 header.style.backgroundColor = "#0074AAFF";
@@ -233,7 +273,7 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
                 header.style.backgroundColor = "#d19e65";
                 footer.style.backgroundColor = "#d19e65";
                 document.getElementById('add_telefone').style.backgroundColor = "#d19e65";
-                document.getElementById('telefone_txt').style.color = "#d19e65";   
+                document.getElementById('telefone_txt').style.color = "#d19e65";
                 for (var i = 0; i < elementos.length; i++) {
                     elementos[i].style.border = "2px solid #d19e65";
                 }
@@ -245,10 +285,10 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
                 }
             } else if (select.value === "opcao4") {
                 logo.src = "img/beatdoctor.png";
-                header.style.backgroundColor = "#ff7478"; 
-                footer.style.backgroundColor = "#ff7478"; 
+                header.style.backgroundColor = "#ff7478";
+                footer.style.backgroundColor = "#ff7478";
                 document.getElementById('add_telefone').style.backgroundColor = "#ff7478";
-                document.getElementById('telefone_txt').style.color = "#ff7478"; 
+                document.getElementById('telefone_txt').style.color = "#ff7478";
                 for (var i = 0; i < elementos.length; i++) {
                     elementos[i].style.border = "2px solid #ff7478";
                 }
@@ -263,7 +303,7 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
                 header.style.backgroundColor = "#14243b";
                 footer.style.backgroundColor = "#14243b";
                 document.getElementById('add_telefone').style.backgroundColor = "#14243b";
-                document.getElementById('telefone_txt').style.color = "#14243b"; 
+                document.getElementById('telefone_txt').style.color = "#14243b";
                 for (var i = 0; i < elementos.length; i++) {
                     elementos[i].style.border = "2px solid #14243b";
                 }
@@ -278,7 +318,7 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
                 header.style.backgroundColor = "#579b51";
                 footer.style.backgroundColor = "#579b51";
                 document.getElementById('add_telefone').style.backgroundColor = "#579b51";
-                document.getElementById('telefone_txt').style.color = "#579b51"; 
+                document.getElementById('telefone_txt').style.color = "#579b51";
                 for (var i = 0; i < elementos.length; i++) {
                     elementos[i].style.border = "2px solid #579b51";
                 }
@@ -309,101 +349,101 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
                     btnHTML.addEventListener("mouseover", function() {
                         this.style.backgroundColor = "rgba(118, 163, 184, 0.3)";
                     });
-                
+
                     btnHTML.addEventListener("mouseout", function() {
-                        this.style.backgroundColor = ""; 
+                        this.style.backgroundColor = "";
                     });
-                
+
                     btnCopiar.addEventListener("mouseover", function() {
                         this.style.backgroundColor = "rgba(118, 163, 184, 0.3)";
                     });
-                
+
                     btnCopiar.addEventListener("mouseout", function() {
-                        this.style.backgroundColor = ""; 
+                        this.style.backgroundColor = "";
                     });
                 }else if (select.value === "opcao2"){
                     btnHTML.addEventListener("mouseover", function() {
                         this.style.backgroundColor = "rgba(255, 208, 166, 0.6)";
                     });
-                
+
                     btnHTML.addEventListener("mouseout", function() {
-                        this.style.backgroundColor = ""; 
+                        this.style.backgroundColor = "";
                     });
-                
+
                     btnCopiar.addEventListener("mouseover", function() {
-                        this.style.backgroundColor = "rgba(255, 208, 166, 0.6)"; 
+                        this.style.backgroundColor = "rgba(255, 208, 166, 0.6)";
                     });
-                
+
                     btnCopiar.addEventListener("mouseout", function() {
-                        this.style.backgroundColor = ""; 
+                        this.style.backgroundColor = "";
                     });
                 }else if (select.value === "opcao3"){
                     btnHTML.addEventListener("mouseover", function() {
                         this.style.backgroundColor = "rgba(255, 240, 203, 0.6)";
                     });
-                
+
                     btnHTML.addEventListener("mouseout", function() {
-                        this.style.backgroundColor = ""; 
+                        this.style.backgroundColor = "";
                     });
-                
+
                     btnCopiar.addEventListener("mouseover", function() {
-                        this.style.backgroundColor = "rgba(255, 240, 203, 0.6)"; 
+                        this.style.backgroundColor = "rgba(255, 240, 203, 0.6)";
                     });
-                
+
                     btnCopiar.addEventListener("mouseout", function() {
-                        this.style.backgroundColor = ""; 
+                        this.style.backgroundColor = "";
                     });
                 }else if (select.value === "opcao4"){
                     btnHTML.addEventListener("mouseover", function() {
                         this.style.backgroundColor = "rgba(255, 153, 157, 0.3)";
                     });
-                
+
                     btnHTML.addEventListener("mouseout", function() {
-                        this.style.backgroundColor = ""; 
+                        this.style.backgroundColor = "";
                     });
-                
+
                     btnCopiar.addEventListener("mouseover", function() {
-                        this.style.backgroundColor = "rgba(255, 153, 157, 0.3)"; 
+                        this.style.backgroundColor = "rgba(255, 153, 157, 0.3)";
                     });
-                
+
                     btnCopiar.addEventListener("mouseout", function() {
-                        this.style.backgroundColor = ""; 
+                        this.style.backgroundColor = "";
                     });
                 }else if (select.value === "opcao5"){
                     btnHTML.addEventListener("mouseover", function() {
                         this.style.backgroundColor = "rgba(118, 163, 184, 0.3)";
                     });
-                
+
                     btnHTML.addEventListener("mouseout", function() {
-                        this.style.backgroundColor = ""; 
+                        this.style.backgroundColor = "";
                     });
-                
+
                     btnCopiar.addEventListener("mouseover", function() {
-                        this.style.backgroundColor = "rgba(118, 163, 184, 0.3)"; 
+                        this.style.backgroundColor = "rgba(118, 163, 184, 0.3)";
                     });
-                
+
                     btnCopiar.addEventListener("mouseout", function() {
-                        this.style.backgroundColor = ""; 
+                        this.style.backgroundColor = "";
                     });
                 }else if (select.value === "opcao6"){
                     btnHTML.addEventListener("mouseover", function() {
                         this.style.backgroundColor = "rgba(87, 155, 81, 0.3)";
                     });
-                
+
                     btnHTML.addEventListener("mouseout", function() {
-                        this.style.backgroundColor = ""; 
+                        this.style.backgroundColor = "";
                     });
-                
+
                     btnCopiar.addEventListener("mouseover", function() {
-                        this.style.backgroundColor = "rgba(87, 155, 81, 0.3)"; 
+                        this.style.backgroundColor = "rgba(87, 155, 81, 0.3)";
                     });
-                
+
                     btnCopiar.addEventListener("mouseout", function() {
-                        this.style.backgroundColor = ""; 
+                        this.style.backgroundColor = "";
                     });
                 }
-            } 
-            
+            }
+
             applyHoverStyles();
         }
         document.getElementById('btnCopiar').addEventListener('mouseover', toggleHoverBorder);
@@ -414,14 +454,14 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
         function showInfo() {
             document.getElementById('infoOverlay').classList.add('show');
         }
-        
+
         function hideInfo() {
             document.getElementById('infoOverlay').classList.remove('show');
         }
-        
+
         window.onclick = function(event) {
             if (event.target === document.getElementById('infoOverlay')) {
                 hideInfo();
             }
         };
-        
+
