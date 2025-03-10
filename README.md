@@ -13,6 +13,7 @@ Este projeto tem como objetivo gerar assinaturas de e-mail personalizadas de aco
 - Inserção de dados do usuário: Nome, Cargo, Telefone e E-mail.
 - Geração automática do HTML da assinatura.
 - Conversão da assinatura em imagem para facilitar a aplicação no Gmail.
+- Botão para copiar o HTML renderizado das assinaturas.
 
 ## Instalação e Uso
 1. Clone este repositório:
@@ -33,6 +34,12 @@ Este projeto tem como objetivo gerar assinaturas de e-mail personalizadas de aco
 GeradorAssinaturaEmail/
 |
 │   documentation.html
+│   logo_acessorias.html
+│   logo_adveasy.html
+│   logo_best_doctors.html
+│   logo_openix.html
+│   logo_setup.html
+│   logo_sittax.html
 │   index.html
 │   README.md
 │   teste.js

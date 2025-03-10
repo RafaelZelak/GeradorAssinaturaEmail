@@ -207,6 +207,7 @@ function atualizarConteudo() {
     }
 }
 
+
 document.getElementById('meuFormulario').addEventListener('input', atualizarConteudo);
 document.getElementById('opcoes').addEventListener('change', atualizarConteudo);
 document.getElementById('opcoes_dominio').addEventListener('change', atualizarConteudo);
@@ -226,7 +227,7 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
             document.getElementById("opcoes_dominio").disabled = false;
             document.getElementById("telefone").disabled = false;
         }
-
+        
         function atualizarLogo() {
             var select = document.getElementById("opcoes");
             var logo = document.getElementById("logo");
@@ -465,3 +466,348 @@ document.getElementById('opcoes_dominio').addEventListener('change', atualizarCo
             }
         };
 
+        function escolhaAssinatura(event) {
+            event.preventDefault();
+            
+            const selectEmpresa = document.getElementById('opcoes');
+            const opcaoSelecionada = selectEmpresa.value;
+            
+            if (opcaoSelecionada === "opcao1") {
+              fetch("logo_setup.html")
+                .then(response => {
+                  if (!response.ok) {
+                    throw new Error("Erro ao carregar o arquivo logo_setup.html");
+                  }
+                  return response.text();
+                })
+                .then(htmlText => {
+                  const nome = document.getElementById('nome').value;
+                  const cargo = document.getElementById('cargo').value;
+                  const email = document.getElementById('email').value;
+                  const dominio = document.getElementById('opcoes_dominio').value;
+                  const emailCompleto = `${email}${dominio}`;
+                  
+                  htmlText = htmlText.replace(/{{nome}}/g, nome);
+                  htmlText = htmlText.replace(/{{cargo}}/g, cargo);
+                  htmlText = htmlText.replace(/{{email}}/g, emailCompleto);
+                  
+                  const tempContainer = document.createElement('div');
+                  tempContainer.style.position = "absolute";
+                  tempContainer.style.left = "-9999px";
+                  tempContainer.innerHTML = htmlText;
+                  document.body.appendChild(tempContainer);
+                  
+                  const assinaturaElement = tempContainer.querySelector('#assinatura');
+                  if (!assinaturaElement) {
+                    throw new Error("Elemento de assinatura não encontrado.");
+                  }
+                  
+                  const range = document.createRange();
+                  range.selectNodeContents(assinaturaElement);
+                  const selection = window.getSelection();
+                  selection.removeAllRanges();
+                  selection.addRange(range);
+                  
+                  try {
+                    const successful = document.execCommand('copy');
+                    const msg = successful ? 'copiada com sucesso!' : 'não foi possível copiar.';
+                    alert("Assinatura " + msg);
+                  } catch (err) {
+                    console.error("Erro ao copiar a assinatura:", err);
+                    alert("Erro ao copiar a assinatura.");
+                  }
+                  
+                  selection.removeAllRanges();
+                  document.body.removeChild(tempContainer);
+                })
+                .catch(err => {
+                  console.error("Erro:", err);
+                  alert("Erro ao carregar a assinatura.");
+                });
+            } 
+            if (opcaoSelecionada === "opcao2") {
+                fetch("logo_sittax.html")
+                  .then(response => {
+                    if (!response.ok) {
+                      throw new Error("Erro ao carregar o arquivo logo_setup.html");
+                    }
+                    return response.text();
+                  })
+                  .then(htmlText => {
+                    // Obtém os valores inseridos pelo usuário
+                    const nome = document.getElementById('nome').value;
+                    const cargo = document.getElementById('cargo').value;
+                    const email = document.getElementById('email').value;
+                    const dominio = document.getElementById('opcoes_dominio').value;
+                    const emailCompleto = `${email}${dominio}`;
+                    
+                    htmlText = htmlText.replace(/{{nome}}/g, nome);
+                    htmlText = htmlText.replace(/{{cargo}}/g, cargo);
+                    htmlText = htmlText.replace(/{{email}}/g, emailCompleto);
+                    
+                    const tempContainer = document.createElement('div');
+                    tempContainer.style.position = "absolute";
+                    tempContainer.style.left = "-9999px";
+                    tempContainer.innerHTML = htmlText;
+                    document.body.appendChild(tempContainer);
+                    
+                    const assinaturaElement = tempContainer.querySelector('#assinatura');
+                    if (!assinaturaElement) {
+                      throw new Error("Elemento de assinatura não encontrado.");
+                    }
+                    
+                    const range = document.createRange();
+                    range.selectNodeContents(assinaturaElement);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    
+                    try {
+                      const successful = document.execCommand('copy');
+                      const msg = successful ? 'copiada com sucesso!' : 'não foi possível copiar.';
+                      alert("Assinatura " + msg);
+                    } catch (err) {
+                      console.error("Erro ao copiar a assinatura:", err);
+                      alert("Erro ao copiar a assinatura.");
+                    }
+                    
+                    selection.removeAllRanges();
+                    document.body.removeChild(tempContainer);
+                  })
+                  .catch(err => {
+                    console.error("Erro:", err);
+                    alert("Erro ao carregar a assinatura.");
+                  });
+              } 
+              if (opcaoSelecionada === "opcao3") {
+                fetch("logo_acessorias.html")
+                  .then(response => {
+                    if (!response.ok) {
+                      throw new Error("Erro ao carregar o arquivo logo_setup.html");
+                    }
+                    return response.text();
+                  })
+                  .then(htmlText => {
+                    const nome = document.getElementById('nome').value;
+                    const cargo = document.getElementById('cargo').value;
+                    const email = document.getElementById('email').value;
+                    const dominio = document.getElementById('opcoes_dominio').value;
+                    const emailCompleto = `${email}${dominio}`;
+                    
+                    htmlText = htmlText.replace(/{{nome}}/g, nome);
+                    htmlText = htmlText.replace(/{{cargo}}/g, cargo);
+                    htmlText = htmlText.replace(/{{email}}/g, emailCompleto);
+                    
+                    const tempContainer = document.createElement('div');
+                    tempContainer.style.position = "absolute";
+                    tempContainer.style.left = "-9999px";
+                    tempContainer.innerHTML = htmlText;
+                    document.body.appendChild(tempContainer);
+                    
+                    const assinaturaElement = tempContainer.querySelector('#assinatura');
+                    if (!assinaturaElement) {
+                      throw new Error("Elemento de assinatura não encontrado.");
+                    }
+                    
+                    const range = document.createRange();
+                    range.selectNodeContents(assinaturaElement);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    
+                    try {
+                      const successful = document.execCommand('copy');
+                      const msg = successful ? 'copiada com sucesso!' : 'não foi possível copiar.';
+                      alert("Assinatura " + msg);
+                    } catch (err) {
+                      console.error("Erro ao copiar a assinatura:", err);
+                      alert("Erro ao copiar a assinatura.");
+                    }
+                    
+                   
+                    selection.removeAllRanges();
+                    document.body.removeChild(tempContainer);
+                  })
+                  .catch(err => {
+                    console.error("Erro:", err);
+                    alert("Erro ao carregar a assinatura.");
+                  });
+              }
+
+              if (opcaoSelecionada === "opcao4") {
+                fetch("logo_best_doctors.html")
+                  .then(response => {
+                    if (!response.ok) {
+                      throw new Error("Erro ao carregar o arquivo logo_setup.html");
+                    }
+                    return response.text();
+                  })
+                  .then(htmlText => {
+                    
+                    const nome = document.getElementById('nome').value;
+                    const cargo = document.getElementById('cargo').value;
+                    const email = document.getElementById('email').value;
+                    const dominio = document.getElementById('opcoes_dominio').value;
+                    const emailCompleto = `${email}${dominio}`;
+                    
+                    // Substitui os placeholders pelos valores dinâmicos
+                    htmlText = htmlText.replace(/{{nome}}/g, nome);
+                    htmlText = htmlText.replace(/{{cargo}}/g, cargo);
+                    htmlText = htmlText.replace(/{{email}}/g, emailCompleto);
+                    
+                    const tempContainer = document.createElement('div');
+                    tempContainer.style.position = "absolute";
+                    tempContainer.style.left = "-9999px";
+                    tempContainer.innerHTML = htmlText;
+                    document.body.appendChild(tempContainer);
+                    
+                    const assinaturaElement = tempContainer.querySelector('#assinatura');
+                    if (!assinaturaElement) {
+                      throw new Error("Elemento de assinatura não encontrado.");
+                    }                    
+            
+                    const range = document.createRange();
+                    range.selectNodeContents(assinaturaElement);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    
+                    try {
+                      const successful = document.execCommand('copy');
+                      const msg = successful ? 'copiada com sucesso!' : 'não foi possível copiar.';
+                      alert("Assinatura " + msg);
+                    } catch (err) {
+                      console.error("Erro ao copiar a assinatura:", err);
+                      alert("Erro ao copiar a assinatura.");
+                    }                    
+                    
+                    selection.removeAllRanges();
+                    document.body.removeChild(tempContainer);
+                  })
+                  .catch(err => {
+                    console.error("Erro:", err);
+                    alert("Erro ao carregar a assinatura.");
+                  });
+              } 
+ 
+              if (opcaoSelecionada === "opcao5") {
+                fetch("logo_adveasy.html")
+                  .then(response => {
+                    if (!response.ok) {
+                      throw new Error("Erro ao carregar o arquivo logo_setup.html");
+                    }
+                    return response.text();
+                  })
+                  .then(htmlText => {                    
+                    const nome = document.getElementById('nome').value;
+                    const cargo = document.getElementById('cargo').value;
+                    const email = document.getElementById('email').value;
+                    const dominio = document.getElementById('opcoes_dominio').value;
+                    const emailCompleto = `${email}${dominio}`;                    
+                    
+                    htmlText = htmlText.replace(/{{nome}}/g, nome);
+                    htmlText = htmlText.replace(/{{cargo}}/g, cargo);
+                    htmlText = htmlText.replace(/{{email}}/g, emailCompleto);                    
+                    
+                    const tempContainer = document.createElement('div');
+                    tempContainer.style.position = "absolute";
+                    tempContainer.style.left = "-9999px";
+                    tempContainer.innerHTML = htmlText;
+                    document.body.appendChild(tempContainer);
+                    
+                    
+                    const assinaturaElement = tempContainer.querySelector('#assinatura');
+                    if (!assinaturaElement) {
+                      throw new Error("Elemento de assinatura não encontrado.");
+                    }
+                    
+                    
+                    const range = document.createRange();
+                    range.selectNodeContents(assinaturaElement);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    
+                    try {
+                      const successful = document.execCommand('copy');
+                      const msg = successful ? 'copiada com sucesso!' : 'não foi possível copiar.';
+                      alert("Assinatura " + msg);
+                    } catch (err) {
+                      console.error("Erro ao copiar a assinatura:", err);
+                      alert("Erro ao copiar a assinatura.");
+                    }
+                    
+                    
+                    selection.removeAllRanges();
+                    document.body.removeChild(tempContainer);
+                  })
+                  .catch(err => {
+                    console.error("Erro:", err);
+                    alert("Erro ao carregar a assinatura.");
+                  });
+              }
+              
+              if (opcaoSelecionada === "opcao6") {
+                fetch("logo_openix.html")
+                  .then(response => {
+                    if (!response.ok) {
+                      throw new Error("Erro ao carregar o arquivo logo_setup.html");
+                    }
+                    return response.text();
+                  })
+                  .then(htmlText => {
+                    
+                    const nome = document.getElementById('nome').value;
+                    const cargo = document.getElementById('cargo').value;
+                    const email = document.getElementById('email').value;
+                    const dominio = document.getElementById('opcoes_dominio').value;
+                    const emailCompleto = `${email}${dominio}`;
+                    
+                    
+                    htmlText = htmlText.replace(/{{nome}}/g, nome);
+                    htmlText = htmlText.replace(/{{cargo}}/g, cargo);
+                    htmlText = htmlText.replace(/{{email}}/g, emailCompleto);
+                    
+                    
+                    const tempContainer = document.createElement('div');
+                    tempContainer.style.position = "absolute";
+                    tempContainer.style.left = "-9999px";
+                    tempContainer.innerHTML = htmlText;
+                    document.body.appendChild(tempContainer);
+                    
+                    
+                    const assinaturaElement = tempContainer.querySelector('#assinatura');
+                    if (!assinaturaElement) {
+                      throw new Error("Elemento de assinatura não encontrado.");
+                    }
+                    
+                    
+                    const range = document.createRange();
+                    range.selectNodeContents(assinaturaElement);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    
+                    try {
+                      const successful = document.execCommand('copy');
+                      const msg = successful ? 'copiada com sucesso!' : 'não foi possível copiar.';
+                      alert("Assinatura " + msg);
+                    } catch (err) {
+                      console.error("Erro ao copiar a assinatura:", err);
+                      alert("Erro ao copiar a assinatura.");
+                    }
+                    
+                    
+                    selection.removeAllRanges();
+                    document.body.removeChild(tempContainer);
+                  })
+                  .catch(err => {
+                    console.error("Erro:", err);
+                    alert("Erro ao carregar a assinatura.");
+                  });
+              }
+            else {
+              console.log("Opção não implementada ainda.");
+            }
+          }
+          
